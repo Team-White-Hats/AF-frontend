@@ -2,28 +2,49 @@ import React from "react";
 import { Route,Switch } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Home from '../pages/client/HomePage'
+import Product from '../pages/admin/productManagement/ProductAdmin'
+import Sidebar from "../components/admin/sidebar/Sidebar";
+import AdminLayout from "../layout/admin/AdminLayout";
+import Header from "../components/admin/header/Header";
 
 
 
 const AppRoutes = () => {
     return (
+        
         <div>
-          <div>
-            <Router>
-                    <Route path='/client/:path?' exact>
-                        <div style={{"height": "auto"}}>
+        <Router>
+            <Switch>
+                <Route path='/client/:path?' exact>
+                    <div style={{"height": "auto"}}>
+                            <main>
+                                <Switch>
+                                
+                                   
+                                </Switch>
+                            </main>
+                    </div>
+                </Route>
+
+                <Route path='/admin/:path?' exact>
+                <AdminLayout class="wrapper">
+                        <Header/>
+                        <Sidebar/>
+                        <Switch>
+                            <Route path="/admin/productadmin" render={(props) => <Product/>} exact/>;
+                           
                             
-                                <main>
-                                    <Switch>
-                                        <Route path="/client" render={(props) => <Home/>} exact/>;
-                                    </Switch>
-                                </main>
-                        </div>
-                    </Route>
-            </Router>
-        </div>
-        </div>
-    );
+
+                        </Switch>
+                    </AdminLayout>
+                </Route>
+
+
+            </Switch>
+        </Router>
+    </div>
+);
+        
+    
 };
 export default AppRoutes;
