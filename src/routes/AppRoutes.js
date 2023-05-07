@@ -6,6 +6,8 @@ import ProductAdmin from "../pages/admin/productManagement/ProductAdmin";
 import Sidebar from "../components/admin/sidebar/Sidebar";
 import AdminLayout from "../layout/admin/AdminLayout";
 import Header from "../components/admin/header/Header";
+import ClientHeader from "../components/client/Header/Header";
+import Footer from "../components/client/Footer/Footer";
 
 const AppRoutes = () => {
 	return (
@@ -13,14 +15,12 @@ const AppRoutes = () => {
         <Router>
             <Switch>
                 <Route path='/client/:path?' exact>
-                    <div style={{"height": "auto"}}>
-                            <main>
+                            <ClientHeader/>
                                 <Switch>
                                 
-                                   
+                                
                                 </Switch>
-                            </main>
-                    </div>
+                                <Footer/>
                 </Route>
 
                 <Route path='/admin/:path?' exact>
