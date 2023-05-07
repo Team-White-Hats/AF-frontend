@@ -7,7 +7,7 @@ import {
 	MDBNavbarBrand,
 	MDBContainer,
 } from "mdb-react-ui-kit";
-import logo from "../assets/logo/logo.png";
+import logo from "../../../assets/logo/logo.png";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";

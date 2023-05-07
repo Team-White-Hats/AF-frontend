@@ -10,10 +10,10 @@ import {
 	MDBNavbarBrand,
 	MDBCollapse,
 } from "mdb-react-ui-kit";
-import logo from "../assets/logo/logo.png";
-import { ReactComponent as Person } from "../assets/icons/person.svg";
+import logo from "../../../assets/logo/logo.png";
+import { ReactComponent as Person } from "../../../assets/icons/person.svg";
 
-export default function Header() {
+export default function ClientHeader() {
 	const [showNavColor, setShowNavColor] = useState(false);
 
 	return (
