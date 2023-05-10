@@ -8,8 +8,11 @@ import AdminLayout from "../layout/admin/AdminLayout";
 import Header from "../components/admin/header/Header";
 import ClientHeader from "../components/client/Header/Header";
 import Footer from "../components/client/Footer/Footer";
+import ProductHome from "../pages/client/productClient/ProductHome";
 
 const AppRoutes = () => {
+
+
 	return (
 		<div>
         <Router>
@@ -17,7 +20,7 @@ const AppRoutes = () => {
                 <Route path='/client/:path?' exact>
                             <ClientHeader/>
                                 <Switch>
-                                
+                                <Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
                                 
                                 </Switch>
                                 <Footer/>
