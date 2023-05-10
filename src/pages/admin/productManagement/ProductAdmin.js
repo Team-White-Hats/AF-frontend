@@ -1,7 +1,13 @@
 import React from "react";
 import "./ProductAdmin.css";
+import Bathik from "./wall.jpg";
+import Mask from "./maskslide.jpg"
 
 function ProductAdmin() {
+
+
+  const [product_ids, setproduct_id] = useState("");
+
 
   return (
     <div>
@@ -44,7 +50,7 @@ function ProductAdmin() {
                                     </div>
                                     <div id="imgInputDiv">
                                         <div>
-                                            <img id="ProfileImage" className="imgDiv"
+                                            <img id="ProfileImage" className="imgDiv" src={Bathik}
                                                  alt=""/>
                                         </div>
                                     </div>
@@ -226,7 +232,18 @@ function ProductAdmin() {
                   </tr>
                 </thead>
                 <tbody>
-                 
+              
+                  <tr>
+                  <td>6457ce9026d5f35ebb163eba</td>
+                  <td><img src={Mask} style={{height:'60px'}} ></img></td>
+                  <td>Mayura Raksha Mask</td>
+                  <td>Handicrafts</td>
+                  <td>+94776668613</td>
+                  <td>10</td>
+                  <td>$200</td>
+                  <td>Available</td>
+                  </tr>
+                    
                 </tbody>
               </table>
             </div>
