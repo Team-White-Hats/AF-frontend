@@ -58,8 +58,6 @@ const AppRoutes = () => {
 						</Switch>
 						<Footer />
 					</Route>
-        <Router>
-            <Switch>
                 <Route path='/client/:path?' exact>
                             <ClientHeader/>
                                 <Switch>
