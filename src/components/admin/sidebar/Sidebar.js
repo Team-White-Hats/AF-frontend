@@ -17,9 +17,9 @@ const Sidebar = () => {
                 <span className="icon"><i className="fas fa-cubes" aria-hidden="true"/></span>
                 <span className="title">Products</span>
             </Link></li>
-            <li><Link to="/admin/vehicle">
+            <li><Link to="/admin/tourtripadmin">
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
-                <span className="title">Tours</span>
+                <span className="title">Tour Trips</span>
             </Link></li>
             <li><Link to="/admin/package">
                 <span className="icon"><i className="fa fa-archive" aria-hidden="true"/></span>
