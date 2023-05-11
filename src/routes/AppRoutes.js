@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-
 import ProductAdmin from "../pages/admin/productManagement/ProductAdmin";
 import Sidebar from "../components/admin/sidebar/Sidebar";
 import AdminLayout from "../layout/admin/AdminLayout";
@@ -14,8 +13,11 @@ import BookYourtrip from "../pages/client/tourTripManagement/bookYourTrip";
 import BeforeYouGo from "../pages/client/tourTripManagement/beforeYouGo";
 import AboutSriLanka from "../pages/client/tourTripManagement/aboutSriLanka";
 import TourTripDetailsPage from "../pages/client/tourTripManagement/touTripDetailsPage";
+import ProductHome from "../pages/client/productClient/ProductHome";
 
 const AppRoutes = () => {
+
+
 	return (
 		<div>
 			<Router>
@@ -56,7 +58,16 @@ const AppRoutes = () => {
 						</Switch>
 						<Footer />
 					</Route>
-
+        <Router>
+            <Switch>
+                <Route path='/client/:path?' exact>
+                            <ClientHeader/>
+                                <Switch>
+                                <Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
+                                
+                                </Switch>
+                                <Footer/>
+                </Route>
 					<Route path="/admin/:path?" exact>
 						<AdminLayout class="wrapper">
 							<Header />
