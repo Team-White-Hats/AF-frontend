@@ -21,7 +21,6 @@ export default function Footer() {
 				backgroundColor: "#2a2a72",
 				background:
 					"linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
-				marginTop: 345,
 			}}>
 			<MDBContainer fluid>
 				<MDBRow style={{ marginLeft: 50 }}>
@@ -32,6 +31,8 @@ export default function Footer() {
 								marginLeft: 70,
 								color: "white",
 								marginTop: 25,
+								fontSize: 16,
+								fontFamily: "monospace",
 							}}>
 							Quick Links
 						</h6>
@@ -49,16 +50,16 @@ export default function Footer() {
 									class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4"
 									style={{
 										color: "white",
-										marginTop: 10,
+										marginTop: 10,								
 									}}>
-									<h6 class="text mb-2">
+									<h6 class="text mb-2" style={{fontFamily: "monospace"}}>
 										Tourism Hot Line
 									</h6>
-									<h6 class="text mb-8">1912</h6>
-									<h6 class="text mb-2">
+									<h6 class="text mb-8" style={{fontFamily: "monospace", marginLeft: 50}}>1912</h6>
+									<h6 class="text mb-2" style={{fontFamily: "monospace"}}>
 										Ambulance Service
 									</h6>
-									<h6 class="text">1990</h6>
+									<h6 class="text" style={{fontFamily: "monospace", marginLeft: 50}}>1990</h6>
 								</div>
 								<div
 									class="col-md-2 col-lg-2 col-xl-2 mx-auto"
@@ -67,7 +68,7 @@ export default function Footer() {
 										<a
 											href="#!"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Contact Us
 										</a>
 									</p>
@@ -75,7 +76,7 @@ export default function Footer() {
 										<a
 											href="#!"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Get Your Products
 										</a>
 									</p>
@@ -83,19 +84,19 @@ export default function Footer() {
 										<a
 											href="#!"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Review & Feedback
 										</a>
 									</p>
 								</div>
 								<div
 									class="col-md-3 col-lg-2 col-xl-2 mx-auto"
-									style={{ color: "white" }}>
+									style={{ color: "white", fontFamily: "monospace", }}>
 									<p>
 										<a
-											href="#!"
+											href="/client/tour-trip-details"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Plan Your Trip
 										</a>
 									</p>
@@ -103,7 +104,7 @@ export default function Footer() {
 										<a
 											href="#!"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Upcoming Events
 										</a>
 									</p>
@@ -111,7 +112,7 @@ export default function Footer() {
 										<a
 											href="#!"
 											class="text-reset"
-											style={{ fontSize: 15 }}>
+											style={{ fontSize: 15, fontFamily: "monospace", }}>
 											Terms & Conditions
 										</a>
 									</p>
@@ -172,12 +173,13 @@ export default function Footer() {
 						color: "white",
 						fontWeight: 50,
 						fontSize: 10,
+						fontFamily: "monospace"
 					}}>
 					&copy; {new Date().getFullYear()} All Rights Reserved
 					by:{" "}
 					<a
 						className="text"
-						style={{ color: "white", fontWeight: 50 }}>
+						style={{ color: "white", fontWeight: 50, fontFamily: "monospace" }}>
 						Tour Trip Sri Lanka
 					</a>
 				</div>
