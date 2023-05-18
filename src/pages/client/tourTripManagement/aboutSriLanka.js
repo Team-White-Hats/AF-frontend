@@ -44,11 +44,13 @@ export default function AboutSriLanka() {
 											who fancy a piece of perfectly
 											crafted jewellery.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/about-sri-lanka";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card trip-details">
@@ -75,11 +77,13 @@ export default function AboutSriLanka() {
 											consists of applying wax to
 											non-dye areas.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/tour-trip"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/tour-trip";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card trip-details">
@@ -109,11 +113,13 @@ export default function AboutSriLanka() {
 											items.I found this workshop in
 											Kandy.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/book-your-trip"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/book-your-trip";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card trip-details">
@@ -138,11 +144,13 @@ export default function AboutSriLanka() {
 											chairs, baskets, containers and
 											decorative and household items.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/about-sri-lanka";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card trip-details">
@@ -167,11 +175,13 @@ export default function AboutSriLanka() {
 											making has spread throughout
 											the island over the centuries.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/about-sri-lanka";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card trip-details">
@@ -199,11 +209,13 @@ export default function AboutSriLanka() {
 											wear in Sri Lankan dancing. The
 											performance-dances using masks.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/about-sri-lanka";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											See More
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 							</MDBRow>

@@ -47,11 +47,14 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+										onClick={() => {
+											window.location.href = "/client/about-sri-lanka";
+										  }}
+										  style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+											>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card aboutCard">
@@ -78,11 +81,13 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/before-you-go"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/before-you-go";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card aboutCard">
@@ -110,11 +115,13 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/book-your-trip"
-											className="btn about-btn">
+										<button style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+											onClick={() => {
+												window.location.href = "/client/book-your-trip";
+											  }}
+											>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 							</MDBRow>
