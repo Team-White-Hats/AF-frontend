@@ -15,6 +15,7 @@ import AboutSriLanka from "../pages/client/tourTripManagement/aboutSriLanka";
 import TourTripDetailsPage from "../pages/client/tourTripManagement/touTripDetailsPage";
 import ProductHome from "../pages/client/productClient/ProductHome";
 import ClientLayout from "../layout/client/ClientLayout";
+import ProductView from "../pages/client/productClient/ProductView";
 
 const AppRoutes = () => {
 
@@ -59,6 +60,7 @@ const AppRoutes = () => {
 							;
 
 							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
+							<Route path="/client/:cat" render={(props) => <ProductView/>} exact/>;
 						</Switch>
 						<Footer />
 						</ClientLayout>
