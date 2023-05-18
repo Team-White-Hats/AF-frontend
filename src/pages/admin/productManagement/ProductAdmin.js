@@ -348,10 +348,11 @@ document.getElementById("btnImgDelete").setAttribute("disabled", "true");
                     <option selected disabled value="0" >
                      Product Category
                     </option>
-                    <option value="Batik textiles">Batik textiles</option>
-                    <option value="Handicrafts">Handicrafts</option>
-                    <option value="Gems and jewelry">Gems and jewelry</option>
-                    <option value="ART works">ART works</option>
+                    <option value="Handloom Textiles">Handloom Textiles</option>
+                    <option value="Wood Carvings">Wood Carvings</option>
+                    <option value="Brass Metalwork">Brass Metalwork</option>
+                    <option value="Lacquer(Laksha)">Lacquer(Laksha)</option>
+                    <option value="Batik Textiles">Batik Textiles</option>
                   </select>
                   <p class="alert-txt">{formErrors.productCategory}</p>
                 </div>

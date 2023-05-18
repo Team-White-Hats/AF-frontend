@@ -2,6 +2,7 @@ import React from "react";
 import SliderHome from "../../../components/client/slider/slider.jsx";
 import ProductCategory from "..//../../components/client/productcategory/productCategory.jsx"
 import NewProducts from "../../../components/client/newProducts/newProducts.jsx";
+import ProductCategorys from "../../../components/client/productCat/productCategoryView.jsx";
 
 function ProductHome(){
 
@@ -19,6 +20,12 @@ function ProductHome(){
                 <div>
             <NewProducts/>
             </div>
+            <div style={{marginLeft:'30px',marginTop:"40px",marginBottom:'30px'}}>
+            <h2>Top Categories</h2>
+            </div>
+                 <div>
+                 <ProductCategorys/>
+                 </div>
     
 </div>
 
