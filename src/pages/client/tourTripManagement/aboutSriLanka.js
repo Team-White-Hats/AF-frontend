@@ -48,7 +48,7 @@ export default function AboutSriLanka() {
 											onClick={() => {
 												window.location.href = "/client/about-sri-lanka";
 											  }}
-											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
+											style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35}}>
 											See More
 										</button>
 									</MDBCardBody>

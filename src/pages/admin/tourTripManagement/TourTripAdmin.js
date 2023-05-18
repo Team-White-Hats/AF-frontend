@@ -80,7 +80,7 @@ function TourTripAdmin() {
 					route,
 				},
 			]);
-			console.log( "Response add", response);
+			console.log("Response add", response);
 		});
 		VueSweetalert2.fire({
 			toast: true,
@@ -91,7 +91,7 @@ function TourTripAdmin() {
 			title: "Tour Trip Details added successfully",
 		}).then(function () {
 			// Redirect the user
-			// window.location.href = "/admin/tourtripadmin";
+			window.location.href = "/admin/tourtripadmin";
 		});
 	};
 
@@ -139,6 +139,7 @@ function TourTripAdmin() {
 			window.location.href = "/admin/tourtripadmin";
 		});
 	}
+	
 	const deleteTourTrip = () => {
 		alert("You want to delete Course");
 		Axios.delete(

@@ -16,6 +16,7 @@ import TourTripDetailsPage from "../pages/client/tourTripManagement/touTripDetai
 import ProductHome from "../pages/client/productClient/ProductHome";
 import ClientLayout from "../layout/client/ClientLayout";
 import ProductView from "../pages/client/productClient/ProductView";
+import TourTripDetailsBooking from "../pages/admin/tourTripManagement/TourTripBookingDetails";
 
 const AppRoutes = () => {
 
@@ -80,6 +81,12 @@ const AppRoutes = () => {
 								<Route
 									path="/admin/tourtripadmin"
 									render={(props) => <TourTripAdmin />}
+									exact
+								/>
+								;
+								<Route
+									path="/admin/tourtripbooking"
+									render={(props) => <TourTripDetailsBooking />}
 									exact
 								/>
 								;

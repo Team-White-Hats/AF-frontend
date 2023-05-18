@@ -17,6 +17,10 @@ const Sidebar = () => {
                 <span className="icon"><i className="fas fa-cubes" aria-hidden="true"/></span>
                 <span className="title">Products</span>
             </Link></li>
+            <li><Link to="/admin/tourtripbooking">
+                <span className="icon"><i className="fa fa-calendar-week" aria-hidden="true"/></span>
+                <span className="title">Trip Bookings</span>
+            </Link></li>
             <li><Link to="/admin/tourtripadmin">
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
                 <span className="title">Tour Trips</span>

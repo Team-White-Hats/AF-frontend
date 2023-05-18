@@ -30,10 +30,10 @@ function TourTripIndex() {
 										alt="..."
 									/>
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Culture Products Workshops
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -64,10 +64,10 @@ function TourTripIndex() {
 										alt="..."
 									/>
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Before You Go
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -98,10 +98,10 @@ function TourTripIndex() {
 									/>
 
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Book Your Trip
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
