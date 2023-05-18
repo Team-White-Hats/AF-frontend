@@ -1,0 +1,21 @@
+#detailscard{
+
+    margin-top: 100px;
+  }
+  
+  .details1 h1{
+  
+    font-size:large;
+    font-weight:700;
+  }
+  
+  
+  .details2 h1{
+  
+    font-size:large;
+    font-weight:700;
+  }
+  
+  #buttonMore{
+    margin-left: 20px;
+  }
