@@ -8,6 +8,9 @@ import AdminLayout from "../layout/admin/AdminLayout";
 import Header from "../components/admin/header/Header";
 import ClientHeader from "../components/client/Header/Header";
 import Footer from "../components/client/Footer/Footer";
+import ReviewPage from "../pages/client/reviewManagement/ReviewPage";
+import ReviewView from "../pages/admin/reviewManagement/ReviewView";
+
 
 const AppRoutes = () => {
 	return (
@@ -17,7 +20,7 @@ const AppRoutes = () => {
                 <Route path='/client/:path?' exact>
                             <ClientHeader/>
                                 <Switch>
-                                
+                            <Route path="/client/reviewpage" render={(props) => <ReviewPage/>} exact/>;  
                                 
                                 </Switch>
                                 <Footer/>
@@ -29,6 +32,8 @@ const AppRoutes = () => {
                         <Sidebar/>
                         <Switch>
                             <Route path="/admin/productadmin" render={(props) => <ProductAdmin/>} exact/>;
+                            <Route path="/admin/reviewadmin" render={(props) => <ReviewView/>} exact/>;
+                            
                         </Switch>
                     </AdminLayout>
                 </Route>
