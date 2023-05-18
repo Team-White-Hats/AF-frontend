@@ -14,6 +14,8 @@ import BeforeYouGo from "../pages/client/tourTripManagement/beforeYouGo";
 import AboutSriLanka from "../pages/client/tourTripManagement/aboutSriLanka";
 import TourTripDetailsPage from "../pages/client/tourTripManagement/touTripDetailsPage";
 import ProductHome from "../pages/client/productClient/ProductHome";
+import ClientLayout from "../layout/client/ClientLayout";
+import ProductView from "../pages/client/productClient/ProductView";
 
 const AppRoutes = () => {
 
@@ -24,6 +26,7 @@ const AppRoutes = () => {
 				<Switch>
 					<Route path="/client/:path?" exact>
 						<ClientHeader />
+						<ClientLayout>
 						<Switch>
 							<Route
 								path="/client/tour-trip-details"
@@ -55,17 +58,14 @@ const AppRoutes = () => {
 								exact
 							/>
 							;
+
+							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
+							<Route path="/client/:cat" render={(props) => <ProductView/>} exact/>;
 						</Switch>
 						<Footer />
+						</ClientLayout>
 					</Route>
-                <Route path='/client/:path?' exact>
-                            <ClientHeader/>
-                                <Switch>
-                                <Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
-                                
-                                </Switch>
-                                <Footer/>
-                </Route>
+               
 					<Route path="/admin/:path?" exact>
 						<AdminLayout class="wrapper">
 							<Header />
