@@ -30,10 +30,10 @@ function TourTripIndex() {
 										alt="..."
 									/>
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Culture Products Workshops
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -47,11 +47,14 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/about-sri-lanka"
-											className="btn about-btn">
+										<button
+										onClick={() => {
+											window.location.href = "/client/about-sri-lanka";
+										  }}
+										  style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+											>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card aboutCard">
@@ -61,10 +64,10 @@ function TourTripIndex() {
 										alt="..."
 									/>
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Before You Go
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -78,11 +81,13 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/before-you-go"
-											className="btn about-btn">
+										<button
+											onClick={() => {
+												window.location.href = "/client/before-you-go";
+											  }}
+											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 								<MDBCard className="card aboutCard">
@@ -93,10 +98,10 @@ function TourTripIndex() {
 									/>
 
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600}}>
+										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
 											Book Your Trip
 										</MDBCardTitle>
-										<MDBCardText>
+										<MDBCardText style={{fontSize:15}}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -110,11 +115,13 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<MDBBtn
-											href="/client/book-your-trip"
-											className="btn about-btn">
+										<button style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+											onClick={() => {
+												window.location.href = "/client/book-your-trip";
+											  }}
+											>
 											View
-										</MDBBtn>
+										</button>
 									</MDBCardBody>
 								</MDBCard>
 							</MDBRow>

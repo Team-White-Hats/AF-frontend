@@ -1,7 +1,301 @@
 import React from "react";
 import "./TourTripAdmin.css";
+import { useState, useEffect } from "react";
+import Axios from "axios";
+import VueSweetalert2 from "sweetalert2";
 
 function TourTripAdmin() {
+	const [tourTrip_ids, setTourTrip_id] = useState("");
+	const [placeName, setPlaceName] = useState("");
+	const [startLocation, setStartLocation] = useState("");
+	const [endLocation, setEndLocation] = useState("");
+	const [transportType, setTransportType] = useState("");
+	const [description, setDescription] = useState("");
+	const [entryPrice, setEntryPrice] = useState("");
+	const [products, setProducts] = useState("");
+	const [productImages, setProductImages] = useState("");
+	const [statusType, setStatusType] = useState("");
+	const [route, setRoute] = useState("");
+	const [listOftrips, setlistOftrips] = useState([]);
+	const [PackageSearch, setpkgSearch] = useState("");
+	const [formErrors, setFormErrors] = useState({});
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const errors = validate();
+		if (Object.keys(errors).length === 0) {
+			createTourTrip();
+		}
+		setFormErrors(errors);
+	};
+
+	const validate = () => {
+		const errors = {};
+		const requiredFields = [
+			{ key: "placeName", message: "Place Name is required!" },
+			{
+				key: "startLocation",
+				message: "Start Location is required!",
+			},
+			{ key: "endLocation", message: "End Locaion is required!" },
+			{ key: "entryPrice", message: "Entry Price is required!" },
+			{ key: "products", message: "Products is required!" },
+			{ key: "statusType", message: "Status Type is required!" },
+		];
+
+		requiredFields.forEach((field) => {
+			if (!eval(field.key)) {
+				errors[field.key] = field.message;
+			}
+		});
+
+		return errors;
+	};
+
+	const createTourTrip = () => {
+		Axios.post("http://localhost:8000/api/tourtrip/create/", {
+			placeName,
+			startLocation,
+			endLocation,
+			transportType,
+			description,
+			entryPrice,
+			products,
+			productImages,
+			statusType,
+			route,
+		}).then((response) => {
+			setlistOftrips([
+				...listOftrips,
+				{
+					placeName,
+					startLocation,
+					endLocation,
+					transportType,
+					description,
+					entryPrice,
+					products,
+					productImages,
+					statusType,
+					route,
+				},
+			]);
+			console.log("Response add", response);
+		});
+		VueSweetalert2.fire({
+			toast: true,
+			position: "center",
+			showConfirmButton: false,
+			timer: 1000,
+			icon: "success",
+			title: "Tour Trip Details added successfully",
+		}).then(function () {
+			// Redirect the user
+			window.location.href = "/admin/tourtripadmin";
+		});
+	};
+
+	useEffect(() => {
+		Axios.get("http://localhost:8000/api/tourtrip/all").then(
+			(response) => {
+				setlistOftrips(response.data);
+			},
+		);
+	}, []);
+
+	function updateTourTrip(e) {
+		e.preventDefault();
+		alert("Going to Update Tour Trip Details");
+		const newPackage = {
+			placeName,
+			startLocation,
+			endLocation,
+			transportType,
+			description,
+			entryPrice,
+			products,
+			productImages,
+			statusType,
+			route,
+		};
+
+		Axios.put(
+			`http://localhost:8000/api/tourtrip/update/${tourTrip_ids}`,
+			newPackage,
+		)
+			.then(() => {})
+			.catch((err) => {
+				console.log(err);
+			});
+		VueSweetalert2.fire({
+			toast: true,
+			position: "center",
+			showConfirmButton: false,
+			timer: 1800,
+			icon: "success",
+			title: "Tour Trip Details Updated Successfully",
+		}).then(function () {
+			// Redirect the user
+			window.location.href = "/admin/tourtripadmin";
+		});
+	}
+	
+	const deleteTourTrip = () => {
+		alert("You want to delete Course");
+		Axios.delete(
+			`http://localhost:8000/api/tourtrip/delete/${tourTrip_ids}`,
+		).then((res) => {});
+		VueSweetalert2.fire({
+			toast: true,
+			position: "center",
+			showConfirmButton: false,
+			timer: 1800,
+			icon: "success",
+			title: "Tour trip details Deleted Successfully",
+		}).then(function () {
+			// Redirect the user
+			window.location.href = "/admin/tourtripadmin";
+		});
+	};
+
+	const loadPackageDetailsedit = (StoreTourTrip) => {
+		document.getElementById("reg").setAttribute("disabled", "true");
+		document.getElementById("delete").setAttribute("disabled", "true");
+		setTourTrip_id(StoreTourTrip._id);
+		setPlaceName(StoreTourTrip.placeName);
+		setStartLocation(StoreTourTrip.startLocation);
+		setEndLocation(StoreTourTrip.endLocation);
+		setTransportType(StoreTourTrip.transportType);
+		setDescription(StoreTourTrip.description);
+		setEntryPrice(StoreTourTrip.entryPrice);
+		setProducts(StoreTourTrip.products);
+		setProductImages(StoreTourTrip.productImages);
+		setStatusType(StoreTourTrip.statusType);
+	};
+
+	const loadPackageDetailsdelete = (StoreTourTrip) => {
+		document.getElementById("reg").setAttribute("disabled", "true");
+		document.getElementById("edit").setAttribute("disabled", "true");
+		setTourTrip_id(StoreTourTrip._id);
+		setPlaceName(StoreTourTrip.placeName);
+		setStartLocation(StoreTourTrip.startLocation);
+		setEndLocation(StoreTourTrip.endLocation);
+		setTransportType(StoreTourTrip.transportType);
+		setDescription(StoreTourTrip.description);
+		setEntryPrice(StoreTourTrip.entryPrice);
+		setProducts(StoreTourTrip.products);
+		setProductImages(StoreTourTrip.productImages);
+		setStatusType(StoreTourTrip.statusType);
+	};
+
+	//image
+	const addcoverimage = () => {
+		let imgDiv = document.getElementById("imgInputDiv");
+
+		let imgUploader = document.createElement("input");
+		imgUploader.setAttribute("id", "imgUploader");
+		imgUploader.setAttribute("type", "file");
+		imgUploader.setAttribute(
+			"accept",
+			"image/png, image/gif, image/jpeg, image/jpg",
+		);
+		imgUploader.setAttribute("class", "d-none");
+		imgDiv.appendChild(imgUploader);
+
+		let imgUploaderElement = document.getElementById("imgUploader");
+		console.log(imgUploaderElement);
+
+		if (
+			imgUploaderElement !== undefined &&
+			imgUploaderElement !== null
+		) {
+			imgUploaderElement.click();
+			imgUploaderElement.addEventListener("change", () => {
+				imgUploaderElement =
+					document.getElementById("imgUploader");
+				console.log(imgUploaderElement);
+				if (
+					imgUploaderElement.files[0] !== null &&
+					imgUploaderElement.files[0] !== undefined
+				) {
+					if (imgUploaderElement.files.length > 0) {
+						const fileReader = new FileReader();
+
+						fileReader.onload = function (event) {
+							setProductImages(event.target.result);
+						};
+
+						fileReader.readAsDataURL(
+							imgUploaderElement.files[0],
+						);
+					}
+				}
+			});
+		}
+
+		document.getElementById("btnEditImg").removeAttribute("disabled");
+		document
+			.getElementById("btnImgDelete")
+			.removeAttribute("disabled");
+	};
+
+	const updatecoverimage = () => {
+		document.getElementById("ProfileImage").removeAttribute("src");
+		document
+			.getElementById("btnAddImg")
+			.setAttribute("disabled", "true");
+
+		let imgDiv = document.getElementById("imgInputDiv");
+
+		let imgUploader = document.createElement("input");
+		imgUploader.setAttribute("id", "imgUploader");
+		imgUploader.setAttribute("type", "file");
+		imgUploader.setAttribute("required", "true");
+		imgUploader.setAttribute(
+			"accept",
+			"image/png, image/gif, image/jpeg, image/jpg",
+		);
+		imgUploader.setAttribute("class", "d-none");
+		imgDiv.appendChild(imgUploader);
+
+		let imgUploaderElement = document.getElementById("imgUploader");
+		console.log(imgUploaderElement);
+
+		if (
+			imgUploaderElement !== undefined &&
+			imgUploaderElement !== null
+		) {
+			imgUploaderElement.click();
+			imgUploaderElement.addEventListener("change", () => {
+				imgUploaderElement =
+					document.getElementById("imgUploader");
+				console.log(imgUploaderElement);
+				if (
+					imgUploaderElement.files[0] !== null &&
+					imgUploaderElement.files[0] !== undefined
+				) {
+					if (imgUploaderElement.files.length > 0) {
+						const fileReader = new FileReader();
+
+						fileReader.onload = function (event) {
+							setProductImages(event.target.result);
+						};
+
+						fileReader.readAsDataURL(
+							imgUploaderElement.files[0],
+						);
+					}
+				}
+			});
+		}
+	};
+	const removecoverImages = () => {
+		document.getElementById("ProfileImage").removeAttribute("src");
+		document
+			.getElementById("btnImgDelete")
+			.setAttribute("disabled", "true");
+	};
+
 	return (
 		<div>
 			<div className="main_container">
@@ -36,7 +330,10 @@ function TourTripAdmin() {
 											<button
 												className="btn btnAddImg"
 												id="btnAddImg"
-												type="button">
+												type="button"
+												onClick={() => {
+													addcoverimage();
+												}}>
 												<i
 													className="fa fa-plus text-white"
 													aria-hidden="true"
@@ -45,13 +342,19 @@ function TourTripAdmin() {
 											<button
 												className="btn btnEditImg"
 												id="btnEditImg"
-												type="button">
+												type="button"
+												onClick={() => {
+													updatecoverimage();
+												}}>
 												<i className="fa-solid fa-pen text-white" />
 											</button>
 											<button
 												className="btn btnImgDelete"
 												id="btnImgDelete"
-												type="button">
+												type="button"
+												onClick={() => {
+													removecoverImages();
+												}}>
 												<i className="fa-solid fa-trash-can d-inline text-white" />
 											</button>
 										</div>
@@ -61,6 +364,7 @@ function TourTripAdmin() {
 											<img
 												id="ProfileImage"
 												className="imgDiv"
+												src={productImages}
 												alt=""
 											/>
 										</div>
@@ -70,9 +374,15 @@ function TourTripAdmin() {
 							<div className="row mt-4">
 								<div className="col">
 									<select
+										value={placeName}
 										name="type"
 										className="form-select"
-										aria-label="role">
+										aria-label="role"
+										onChange={(event) => {
+											setPlaceName(
+												event.target.value,
+											);
+										}}>
 										<option
 											selected
 											disabled
@@ -155,12 +465,21 @@ function TourTripAdmin() {
 											Vavuniya
 										</option>
 									</select>
+									<p class="alert-txt">
+										{formErrors.placeName}
+									</p>
 								</div>
 								<div className="col">
 									<select
 										name="status"
+										value={statusType}
 										className="form-select"
-										aria-label="role">
+										aria-label="role"
+										onChange={(event) => {
+											setStatusType(
+												event.target.value,
+											);
+										}}>
 										<option
 											selected
 											disabled
@@ -181,15 +500,27 @@ function TourTripAdmin() {
 								<div className="col">
 									<input
 										type="text"
+										value={startLocation}
 										className="form-control"
 										placeholder="Start Location"
+										onChange={(event) => {
+											setStartLocation(
+												event.target.value,
+											);
+										}}
 									/>
 								</div>
 								<div className="col">
 									<input
 										type="text"
+										value={endLocation}
 										className="form-control"
 										placeholder="End Location"
+										onChange={(event) => {
+											setEndLocation(
+												event.target.value,
+											);
+										}}
 									/>
 								</div>
 							</div>
@@ -197,8 +528,14 @@ function TourTripAdmin() {
 								<div className="col">
 									<select
 										name="type"
+										value={products}
 										className="form-select"
-										aria-label="role">
+										aria-label="role"
+										onChange={(event) => {
+											setProducts(
+												event.target.value,
+											);
+										}}>
 										<option
 											selected
 											disabled
@@ -223,8 +560,14 @@ function TourTripAdmin() {
 								<div className="col">
 									<input
 										type="text"
+										value={entryPrice}
 										className="form-control"
 										placeholder="Entry Price"
+										onChange={(event) => {
+											setEntryPrice(
+												event.target.value,
+											);
+										}}
 									/>
 								</div>
 							</div>
@@ -233,7 +576,13 @@ function TourTripAdmin() {
 									<select
 										name="type"
 										className="form-select"
-										aria-label="role">
+										aria-label="role"
+										value={transportType}
+										onChange={(event) => {
+											setTransportType(
+												event.target.value,
+											);
+										}}>
 										<option
 											selected
 											disabled
@@ -256,7 +605,11 @@ function TourTripAdmin() {
 									<input
 										type="text"
 										className="form-control"
+										value={route}
 										placeholder="Route"
+										onChange={(event) => {
+											setRoute(event.target.value);
+										}}
 									/>
 								</div>
 							</div>
@@ -267,7 +620,13 @@ function TourTripAdmin() {
 											class="form-control"
 											id="exampleFormControlTextarea1"
 											rows="6"
-											placeholder="Description"></textarea>
+											value={description}
+											placeholder="Description"
+											onChange={(event) => {
+												setDescription(
+													event.target.value,
+												);
+											}}></textarea>
 									</div>
 								</div>
 							</div>
@@ -276,19 +635,22 @@ function TourTripAdmin() {
 									<button
 										type="submit"
 										id="reg"
-										className="btn btnRegister ">
+										className="btn btnRegister "
+										onClick={handleSubmit}>
 										Add Tour Trip Details
 									</button>
 									<button
 										type="button"
 										id="edit"
-										className="btn btnUpdate">
+										className="btn btnUpdate"
+										onClick={updateTourTrip}>
 										Update
 									</button>
 									<button
 										type="button"
 										id="delete"
-										className="btn btnDelete">
+										className="btn btnDelete"
+										onClick={deleteTourTrip}>
 										Delete
 									</button>
 								</div>
@@ -307,6 +669,9 @@ function TourTripAdmin() {
 										type="text"
 										className="form-control col-8 me-5 px-5"
 										placeholder="Place Name / Status"
+										onChange={(e) => {
+											setpkgSearch(e.target.value);
+										}}
 									/>
 								</div>
 								<div>
@@ -326,7 +691,7 @@ function TourTripAdmin() {
 								<thead>
 									<tr>
 										<th scope="col">Tour Trip ID</th>
-										{/* <th scope="col">Cover Image</th> */}
+										<th scope="col">Image</th>
 										<th scope="col">Place Name</th>
 										<th scope="col">Start Location</th>
 										<th scope="col">End Location</th>
@@ -339,17 +704,106 @@ function TourTripAdmin() {
 										<th scope="col" />
 									</tr>
 								</thead>
-								<tbody style={{marginLeft: 10}}>
-									<th scope="col">T001</th>
-									<th scope="col">Kandy</th>
-									<th scope="col">Colombo</th>
-									<th scope="col">Kandy</th>
-									<th scope="col">Van</th>
-									<th scope="col">500</th>
-									<th scope="col">Handicrafts</th>
-									<th scope="col">Colombo</th>
-									<th scope="col">Available</th>
-									<th scope="col">Action</th>
+								<tbody style={{ marginLeft: 10 }}>
+									{listOftrips &&
+										listOftrips
+											.filter((value) => {
+												if (PackageSearch === "") {
+													return value;
+												} else if (
+													value.placeName
+														.toLowerCase()
+														.includes(
+															PackageSearch.toLowerCase(),
+														)
+												) {
+													return value;
+												} else if (
+													value.statusType
+														.toLowerCase()
+														.includes(
+															PackageSearch.toLowerCase(),
+														)
+												) {
+													return value;
+												}
+											})
+											.map((StoreTourTrip, i) => (
+												<tr
+													class="crs-tr"
+													data-status="active">
+													<td className="crs-td">
+														{StoreTourTrip._id}
+													</td>
+													<td className="crs-td">
+														<img
+															src={
+																StoreTourTrip.productImages
+															}
+															class="crsthumimg"
+															alt=""
+														/>
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.placeName
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.startLocation
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.endLocation
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.transportType
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.entryPrice
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.products
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.route
+														}
+													</td>
+													<td className="crs-td">
+														{
+															StoreTourTrip.statusType
+														}
+													</td>
+													<td>
+														<i
+															className="fa-solid fa-pen me-3 text-primary d-inline fa-2x"
+															onClick={() => {
+																loadPackageDetailsedit(
+																	StoreTourTrip,
+																);
+															}}
+														/>
+														<i
+															className="fa-solid fa-trash-can d-inline me-2 text-danger d-inline fa-2x"
+															onClick={() => {
+																loadPackageDetailsdelete(
+																	StoreTourTrip,
+																);
+															}}
+														/>
+													</td>
+												</tr>
+											))}
 								</tbody>
 							</table>
 						</div>

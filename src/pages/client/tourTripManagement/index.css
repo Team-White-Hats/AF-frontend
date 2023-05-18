@@ -4,13 +4,13 @@
 
 .aboutCard {
 	width: 300px;
-	height: 535px;
+	height: 600px;
 	padding: 8px;
 	margin-right: 20px;
 	margin-left: 140px;
 }
 
-.trip-details{
+.trip-details {
 	width: 300px;
 	height: 555px;
 	padding: 8px;
@@ -18,10 +18,11 @@
 	margin-left: 140px;
 }
 
-.about-btn {
-	height: 35px;
-	width: 80px;
-	padding: 3px;
+.tour-btn {
+	width: 120px;
+	height: 45px;
+	padding: 1px;
+	background: "black"
 }
 
 .form-control {
@@ -90,10 +91,10 @@
 	font-weight: 600;
 }
 
-.about-sri-title{
-    font-weight: 600;
+.about-sri-title {
+	font-weight: 600;
 }
 
-.about-place{
-    font-size: 16px;
+.about-place {
+	font-size: 16px;
 }
