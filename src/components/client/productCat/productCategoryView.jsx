@@ -56,7 +56,7 @@ function ProductCategory(){
               </div>
               <div class="card-body" onclick="openPopup()">
               <div> <h3>{value.cateName}</h3></div>
-              <div style={{marginTop:"10px",display: "flex",justifyContent:"center"}}  > <Link to={`/client/${value.cateName}`} ><button type="button" class="btn" > Shop Now <i className="fa fa-shopping-bag"/></button> </Link></div>
+              <div style={{marginTop:"10px",display: "flex",justifyContent:"center"}}  > <Link to={`/client/product/${value.cateName}`} ><button type="button" class="btn" > Shop Now <i className="fa fa-shopping-bag"/></button> </Link></div>
               </div>
 
             <div>
