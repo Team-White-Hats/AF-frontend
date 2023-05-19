@@ -53,15 +53,15 @@ export default function ClientHeader() {
 							<MDBNavbarItem
 								className="active"
 								style={{
-									marginRight: 30,
+									marginRight: 20,
 									fontWeight: 600,
 								}}>
-								<MDBNavbarLink
-									aria-current="page"
+									<MDBNavbarLink
 									href="#"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Home
 								</MDBNavbarLink>
@@ -69,14 +69,15 @@ export default function ClientHeader() {
 							<MDBNavbarItem
 								className="active"
 								style={{
-									marginRight: 30,
+									marginRight: 20,
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
 									href="#"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Get Your Products
 								</MDBNavbarLink>
@@ -84,14 +85,15 @@ export default function ClientHeader() {
 							<MDBNavbarItem
 								className="active"
 								style={{
-									marginRight: 30,
+									marginRight: 20,
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/tour-trip-details"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Plan Your trip
 								</MDBNavbarLink>
@@ -99,14 +101,15 @@ export default function ClientHeader() {
 							<MDBNavbarItem
 								className="active"
 								style={{
-									marginRight: 30,
+									marginRight: 20,
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
 									href="#"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Upcoming Events
 								</MDBNavbarLink>
@@ -114,14 +117,15 @@ export default function ClientHeader() {
 							<MDBNavbarItem
 								className="active"
 								style={{
-									marginRight: 30,
+									marginRight: 20,
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
 									href="#"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Review & Feedback
 								</MDBNavbarLink>
@@ -136,7 +140,8 @@ export default function ClientHeader() {
 									href="#"
 									style={{
 										color: "white",
-										fontSize: 14,
+										fontSize: 16,
+										fontFamily: "monospace",
 									}}>
 									Contact Us
 								</MDBNavbarLink>
@@ -149,7 +154,7 @@ export default function ClientHeader() {
 									marginTop: 5,
 								}}>
 								<Person
-									style={{ color: "white", padding: 0 }}
+								style={{ color: "white", padding: 0 }}
 								/>
 							</MDBNavbarItem>
 						</MDBNavbarNav>

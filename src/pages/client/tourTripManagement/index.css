@@ -1,0 +1,100 @@
+.mdb-container {
+	background: "black";
+}
+
+.aboutCard {
+	width: 300px;
+	height: 600px;
+	padding: 8px;
+	margin-right: 20px;
+	margin-left: 140px;
+}
+
+.trip-details {
+	width: 300px;
+	height: 555px;
+	padding: 8px;
+	margin-right: 20px;
+	margin-left: 140px;
+}
+
+.tour-btn {
+	width: 120px;
+	height: 45px;
+	padding: 1px;
+	background: "black"
+}
+
+.form-control {
+	height: 46px;
+	mb: 4;
+}
+
+.submit {
+	height: 40px;
+	width: 90px;
+	padding: 3px;
+}
+
+.mdb-card {
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+@media (max-width: 767px) {
+	.carousel-inner .carousel-item > div {
+		display: none;
+	}
+	.carousel-inner .carousel-item > div:first-child {
+		display: block;
+	}
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+	display: flex;
+}
+
+@media (min-width: 768px) {
+	.carousel-inner .carousel-item-end.active,
+	.carousel-inner .carousel-item-next {
+		transform: translateX(25%);
+	}
+	.carousel-inner .carousel-item-start.active,
+	.carousel-inner .carousel-item-prev {
+		transform: translateX(-25%);
+	}
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+	transform: translateX(0);
+}
+
+.img-fluid {
+	width: 450px;
+	height: 200px;
+}
+
+.food-image {
+	width: 800px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 250px;
+}
+
+.title-before-go {
+	font-style: bold;
+	font-weight: 600;
+}
+
+.about-sri-title {
+	font-weight: 600;
+}
+
+.about-place {
+	font-size: 16px;
+}
