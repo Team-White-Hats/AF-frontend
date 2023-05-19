@@ -19,6 +19,9 @@ import ProductHome from "../pages/client/productClient/ProductHome";
 import ClientLayout from "../layout/client/ClientLayout";
 import ProductView from "../pages/client/productClient/ProductView";
 import TourTripDetailsBooking from "../pages/admin/tourTripManagement/TourTripBookingDetails";
+import Login from "../components/client/login/login";
+import Register from "../components/client/Register/Register";
+import UserView from "../pages/admin/clientManagement/ClientView";
 
 const AppRoutes = () => {
 
@@ -63,8 +66,10 @@ const AppRoutes = () => {
 							;
 
 							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
-							<Route path="/client/:cat" render={(props) => <ProductView/>} exact/>;
+							<Route path="/client/product/:cat" render={(props) => <ProductView/>} exact/>;
 							<Route path="/client/reviewpage" render={(props) => <ReviewPage/>} exact/>; 
+							<Route path="/client/login" render={(props) => <Login/>} exact/>; 
+							<Route path="/client/register" render={(props) => <Register/>} exact/>; 
 						</Switch>
 						<Footer />
 						</ClientLayout>
@@ -94,6 +99,7 @@ const AppRoutes = () => {
 								/>
 								;
 								<Route path="/admin/reviewadmin" render={(props) => <ReviewView/>} exact/>;
+								<Route path="/admin/useradmin" render={(props) => <UserView/>} exact/>;
 							</Switch>
 						</AdminLayout>
 					</Route>
