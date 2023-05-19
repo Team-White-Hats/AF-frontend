@@ -51,7 +51,7 @@ function TourTripIndex() {
 										onClick={() => {
 											window.location.href = "/client/about-sri-lanka";
 										  }}
-										  style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+										  style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}
 											>
 											View
 										</button>
@@ -85,7 +85,7 @@ function TourTripIndex() {
 											onClick={() => {
 												window.location.href = "/client/before-you-go";
 											  }}
-											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
+											style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}>
 											View
 										</button>
 									</MDBCardBody>
@@ -115,7 +115,7 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<button style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}
+										<button style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}
 											onClick={() => {
 												window.location.href = "/client/book-your-trip";
 											  }}
