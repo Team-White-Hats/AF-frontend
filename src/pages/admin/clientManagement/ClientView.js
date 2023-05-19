@@ -1,71 +1,52 @@
 import React from "react";
-import "./ReviewView.css";
+import "./ClientView.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import VueSweetalert2 from "sweetalert2";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-function ReviewView() {
+function UserView() {
   
-	const [reviewSearch, setReviewSearch] = useState("");
-	const [listOfreview, setlistOfreview] = useState([]);
+	const [userSearch, setUserSearch] = useState("");
+	const [listOfuser, setlistOfuser] = useState([]);
 
 	useEffect(() => {
-		Axios.get("http://localhost:8000/api/review/all").then(
+		Axios.get("http://localhost:8000/api/user/all").then(
 			(response) => {
-				setlistOfreview(response.data);
+				setlistOfuser(response.data);
 			},
 		);
 	}, []);
 
-	const deleteReview = (reviewId) => {
-    Axios.delete(`http://localhost:8000/api/review/${reviewId}`).then((res) => {
-      setlistOfreview((prevReviews) =>
-        prevReviews.filter((review) => review._id !== reviewId)
-      );
-  
-      VueSweetalert2.fire({
-        toast: true,
-        position: "center",
-        showConfirmButton: false,
-        timer: 1800,
-        icon: "success",
-        title: "Review Deleted Successfully",
-      }).then(function () {
-        // Redirect the user
-        window.location.href = "/admin/reviewadmin";
-      });
-    });
-  };
+    const columns = [
+        { title: "First Name", field: "firstName" },
+        { title: "Last Name", field: "lastName" },
+        { title: "Email", field: "email" },
+        { title: "Phone Number", field: "phoneNumber" },
+        { title: "Password", field: "password" },
+    ];
+    
+    
+    const downLoadPdf = () => {
+        const doc = new jsPDF();
+        doc.text( " User Details Report", 20, 10);
+        doc.autoTable({
+            columns: columns.map((col) => ({
+                ...col,
+                dataKey: col.field,
+            })),
+            body: listOfuser,
+        });
+        doc.save( "User Details Report");
+    };
 
-  const columns = [
-    { title: "User Name", field: "name" },
-    { title: "Email", field: "email" },
-    { title: "Review Header", field: "reviewHeader" },
-    { title: "Review", field: "review" },
-    { title: "Rating", field: "rating" },
-];
-
-
-const downLoadPdf = () => {
-    const doc = new jsPDF();
-    doc.text( " Review and Rating Details Report", 20, 10);
-    doc.autoTable({
-        columns: columns.map((col) => ({
-            ...col,
-            dataKey: col.field,
-        })),
-        body: listOfreview,
-    });
-    doc.save( "Review and Rating Details Report");
-};
 
 	return (
 		<div>
 			<div className="main_container">
 				<div className="item fw-bold fs-5">
-					Review and Rating Management
+					User Management
 				</div>
 				<div className="item">
 					<div className="row mt-5 ps-3">
@@ -89,7 +70,7 @@ const downLoadPdf = () => {
 
 					<div className="row mt-5 px-3">
 						<h6 className="mb-0 fw-bold mt-2 mb-2 fs-5">
-							Current Reviews
+							Current Registered Users
 						</h6>
 						<div className="row mb-5">
 							<div className="d-flex justify-content-end align-items-center">
@@ -100,7 +81,7 @@ const downLoadPdf = () => {
 										className="form-control col-8 me-5 px-5"
 										placeholder="Email"
 										onChange={(e) => {
-											setReviewSearch(
+											setUserSearch(
 												e.target.value,
 											);
 										}}
@@ -122,62 +103,61 @@ const downLoadPdf = () => {
 								id="assignLabsTable">
 								<thead>
 									<tr>
-										<th scope="col">Review ID</th>
-										<th scope="col">Name</th>
+										<th scope="col">User ID</th>
+										<th scope="col">First Name</th>
+										<th scope="col">Last Name</th>
 										<th scope="col">Email</th>
-										<th scope="col">Review Header</th>
-										<th scope="col">Review</th>
-										<th scope="col">Rating</th>
-										<th scope="col">Action</th>
+										<th scope="col">Phone Number</th>
+										<th scope="col">Password</th>
 										<th scope="col" />
 									</tr>
 								</thead>
 
 								<tbody>
-									{listOfreview &&
-										listOfreview
+									{listOfuser &&
+										listOfuser
 											.filter((value) => {
-												if (reviewSearch === "") {
+												if (userSearch === "") {
 													return value;
 												} else if (
 													value.email
 														.toLowerCase()
 														.includes(
-															reviewSearch.toLowerCase(),
+															userSearch.toLowerCase(),
 														)
 												) {
 													return value;
 												}
 											})
-											.map((StoreReview, i) => (
+											.map((StoreUser, i) => (
 												<tr
 													class="crs-tr"
 													data-status="active">
 													<td className="crs-td">
-														{StoreReview._id}
+														{StoreUser._id}
 													</td>
 													<td className="crs-td">
-														{StoreReview.name}
+														{StoreUser.firstName}
 													</td>
 													<td className="crs-td">
-														{StoreReview.email}
+														{StoreUser.lastName}
 													</td>
 													<td className="crs-td">
 														{
-															StoreReview.reviewHeader
+															StoreUser.email
 														}
 													</td>
 													<td className="crs-td">
 														{
-															StoreReview.review
+															StoreUser.phoneNumber
 														}
 													</td>
 													<td className="crs-td">
 														{
-															StoreReview.rating
+															StoreUser.password
 														}
 													</td>
-													<td>
+													{/* <td>
 														<button
 															className="fa-solid fa-trash-can d-inline me-2 text-danger d-inline fa-2x"
 															// onClick={
@@ -185,7 +165,7 @@ const downLoadPdf = () => {
 															// }
                               onClick={() => deleteReview(StoreReview._id)}
                               ></button>
-													</td>
+													</td> */}
 												</tr>
 											))}
 								</tbody>
@@ -198,4 +178,4 @@ const downLoadPdf = () => {
 	);
 }
 
-export default ReviewView;
+export default UserView;
