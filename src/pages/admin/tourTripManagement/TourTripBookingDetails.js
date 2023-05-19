@@ -1,17 +1,13 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
 import "./TourTripAdmin.css";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 function TourTripDetailsBooking(){
 
-    // const [firstName, setFirstName] = useState("");
-	// const [lastName, setLastName] = useState("");
-	// const [country, setCountry] = useState("");
-	// const [visitPlaceName, setVisitPlaceName] = useState("");
-	// const [tourDate, setTourDate] = useState("");
-	// const [gender, setGender] = useState("");
-	// const [emailAddress, setEmailAddress] = useState("");
-	// const [phoneNumber, setPhoneNumber] = useState("");
+    const [firstName, setFirstName] = useState([]);
+
     const [listOfBooking, setlistOfBookings] = useState([]);
 	const [PackageSearch, setpkgSearch] = useState("");
 
@@ -23,11 +19,34 @@ function TourTripDetailsBooking(){
         )
     }, []);
 
+    const columns = [
+        { title: "First Name", field: "firstName" },
+        { title: "Last Name", field: "lastName" },
+        { title: "Tour Date", field: "tourDate" },
+        { title: "Place Name", field: "placeName" },
+        { title: "Email Address", field: "emailAddress" },
+        { title: "Phone Number", field: "phoneNumber" },
+    ];
+
+
+	const downLoadPdf = () => {
+        const doc = new jsPDF();
+        doc.text( " Tour Trip Details Report", 20, 10);
+        doc.autoTable({
+            columns: columns.map((col) => ({
+                ...col,
+                dataKey: col.field,
+            })),
+            body: firstName,
+        });
+        doc.save( " Tour Trip Details Report");
+    };
+
     return(
     <div>
     <div className="main_container">
         <div className="item fw-bold fs-5">
-            Tour Trip Management
+            Tour Trip Bookings
         </div>
         <div className="item">
             <div className="row mt-5 ps-3">
@@ -37,7 +56,7 @@ function TourTripDetailsBooking(){
                             <div className="d-flex justify-content-start align-items-center">
                                 <button
                                     id="btn-generate-report"
-                                    className="btn me-3">
+                                    className="btn me-3" onClick={() => downLoadPdf()}>
                                     Generate Report
                                 </button>
                             </div>
@@ -50,7 +69,7 @@ function TourTripDetailsBooking(){
             </div>
             <div className="row mt-5 px-3">
                 <h6 className="mb-0 fw-bold mt-2 mb-2 fs-5">
-                    Current Tour Trip Details
+                    Booking Tour Trip Details
                 </h6>
                 <div className="row mb-5">
                     <div className="d-flex justify-content-end align-items-center">
@@ -138,7 +157,7 @@ function TourTripDetailsBooking(){
                                             </td>
                                             <td className="crs-td">
                                                 {
-                                                    StoreBookingDetails.tourDate
+                                                    StoreBookingDetails.date
                                                 }
                                             </td>
                                             <td className="crs-td">

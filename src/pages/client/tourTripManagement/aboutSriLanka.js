@@ -5,13 +5,48 @@ import {
 	MDBCardTitle,
 	MDBCardText,
 	MDBCardImage,
-	MDBBtn,
 	MDBContainer,
 	MDBRow,
 	MDBCol,
 } from "mdb-react-ui-kit";
+import Axios from "axios";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
-export default function AboutSriLanka() {
+export default function AboutSriLanka({tourTrip}) {
+
+	const [listOftrips, setlistOftrips] = useState([]);
+	let history = useHistory();
+
+
+	useEffect(() => {
+		Axios.get("http://localhost:8000/api/tourtrip/all").then(
+			(response) => {
+				setlistOftrips(response.data);
+			},
+		);
+	}, []);
+
+
+	const callEvent = (tourTrip) => {
+        console.log(tourTrip);
+
+		history.push("/client/tour-trip", {
+            
+                placeName: tourTrip.placeName,
+                startLocation: tourTrip.startLocation,
+                endLocation: tourTrip.endLocation,
+                transportType: tourTrip.transportType,
+                description: tourTrip.description,
+				entryPrice: tourTrip.entryPrice,
+				products: tourTrip.products,
+				productImages: tourTrip.productImages,
+				statusType: tourTrip.statusType,
+				route: tourTrip.route,
+            
+        });
+    };
+
 	return (
 		<MDBContainer fluid className="bg-white">
 			<MDBRow className="d-flex justify-content-center align-items-center h-80">
@@ -20,9 +55,10 @@ export default function AboutSriLanka() {
 						<h3 className="mb-3 text-uppercase fw-bold text-center mt-3">
 							Culture Products Workshops
 						</h3>
+						<button style={{backgroundColor: "#009ffd", color: "white",width: 150, height: 50, marginLeft: 1300, marginTop: 5, borderRadius: 10}} onClick={() => {window.location.href = "/client/book-your-trip"}}>Book Your Trip</button>
 						<MDBCardBody className="text-black d-flex flex-column justify-content-center">
 							<MDBRow>
-								<MDBCard className="card trip-details mb-5">
+								{/* <MDBCard className="card trip-details mb-5">
 									<MDBCardImage
 										src="https://media.timeout.com/images/101852777/380/285/image.jpg"
 										position="top"
@@ -52,41 +88,30 @@ export default function AboutSriLanka() {
 											See More
 										</button>
 									</MDBCardBody>
-								</MDBCard>
+								</MDBCard> */}
+								{listOftrips.map((trip, index) => (
 								<MDBCard className="card trip-details">
 									<MDBCardImage
-										src="https://lesterlost.com/wp-content/uploads/2017/04/lesterlost-travel-handmade-sri-lanka-crafts-batik-progress-1.jpg"
+										src={trip.productImages}
 										position="top"
 										alt="..."
 									/>
 									<MDBCardBody>
 										<MDBCardTitle className="about-sri-title">
-											Sri Lanka Crafts: Batik
-											(Ambalangoda Workshop)
+										Sri Lanka - {trip.products} {""} ({trip.placeName})
 										</MDBCardTitle>
 										<MDBCardText>
-											Originally from Indonesia, the
-											art of making batik was
-											introduced to Sri Lanka by the
-											Dutch. There are numerous
-											factories and small workshops
-											around Sri Lanka, which produce
-											large quantities of batik
-											clothes. Batik is a
-											time-consuming process which
-											consists of applying wax to
-											non-dye areas.
+										{trip.description}
 										</MDBCardText>
 										<button
-											onClick={() => {
-												window.location.href = "/client/tour-trip";
-											  }}
-											style={{backgroundColor: "blue", color: "white", width: 80, height: 35}}>
+										  onClick={() => callEvent(trip)}
+											style={{backgroundColor: "#009ffd", color: "white", width: 90, height: 35, borderRadius: 5}}>
 											See More
 										</button>
 									</MDBCardBody>
 								</MDBCard>
-								<MDBCard className="card trip-details">
+								  ))}
+								{/* <MDBCard className="card trip-details">
 									<MDBCardImage
 										src="https://lesterlost.com/wp-content/uploads/2018/11/lesterlost-travel-sri-lanka-crafts-elephants.jpg.webp"
 										position="top"
@@ -217,7 +242,7 @@ export default function AboutSriLanka() {
 											See More
 										</button>
 									</MDBCardBody>
-								</MDBCard>
+								</MDBCard> */}
 							</MDBRow>
 						</MDBCardBody>
 					</MDBCard>

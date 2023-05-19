@@ -3,6 +3,8 @@ import "./TourTripAdmin.css";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import VueSweetalert2 from "sweetalert2";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 function TourTripAdmin() {
 	const [tourTrip_ids, setTourTrip_id] = useState("");
@@ -289,12 +291,35 @@ function TourTripAdmin() {
 			});
 		}
 	};
+
 	const removecoverImages = () => {
 		document.getElementById("ProfileImage").removeAttribute("src");
 		document
 			.getElementById("btnImgDelete")
 			.setAttribute("disabled", "true");
 	};
+
+	const columns = [
+        { title: "Place Name", field: "placeName" },
+        { title: "Start Location", field: "startLocation" },
+        { title: "End Location", field: "endLocation" },
+        { title: "Transport Type", field: "transportType" },
+        { title: "Description", field: "description" },
+    ];
+
+
+	const downLoadPdf = () => {
+        const doc = new jsPDF();
+        doc.text(placeName + " Tour Trip Details Report", 20, 10);
+        doc.autoTable({
+            columns: columns.map((col) => ({
+                ...col,
+                dataKey: col.field,
+            })),
+            body: placeName,
+        });
+        doc.save(placeName + " Tour Trip Details Report");
+    };
 
 	return (
 		<div>
@@ -310,7 +335,7 @@ function TourTripAdmin() {
 									<div className="d-flex justify-content-start align-items-center">
 										<button
 											id="btn-generate-report"
-											className="btn me-3">
+											className="btn me-3"  onClick={() => downLoadPdf()}>
 											Generate Report
 										</button>
 									</div>
@@ -542,16 +567,16 @@ function TourTripAdmin() {
 											value="0">
 											Products
 										</option>
-										<option value="Car">
+										<option value="Batik textiles">
 											Batik textiles
 										</option>
-										<option value="Van">
+										<option value="Handicrafts">
 											Handicrafts
 										</option>
-										<option value="Mini Van">
+										<option value="Gems and jewelry">
 											Gems and jewelry
 										</option>
-										<option value="Tuk Tuk">
+										<option value="ART works">
 											ART works
 										</option>
 									</select>
@@ -668,7 +693,7 @@ function TourTripAdmin() {
 										id="searchID"
 										type="text"
 										className="form-control col-8 me-5 px-5"
-										placeholder="Place Name / Status"
+										placeholder="Place Name"
 										onChange={(e) => {
 											setpkgSearch(e.target.value);
 										}}

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-	MDBBtn,
 	MDBContainer,
 	MDBRow,
 	MDBCol,
@@ -237,7 +236,7 @@ function BookYourtrip() {
 						</MDBRow>
 
 						<button
-						style={{width: 100, fontSize: 14, height: 42, backgroundColor: "#009ffd", color: "white"}}
+						style={{width: 100, fontSize: 16, height: 42, backgroundColor: "#009ffd", color: "white",  borderRadius: 10}}
 							size="lg"
 							onClick={handleSubmit}>
 							Submit

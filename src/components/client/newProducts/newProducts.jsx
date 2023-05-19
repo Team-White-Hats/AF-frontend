@@ -14,7 +14,7 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-function NewProducts(){
+function NewProducts(addToCart){
     const [productName,setProductName] = useState("");
     const [productCategory,setproduct_category] = useState("");
     const [productPrice,setproduct_price] = useState("");
@@ -74,8 +74,26 @@ function NewProducts(){
                 
                 </div>
                <div> <p class="card-text">{StoreProduct.smallDes}</p> </div>
-               <div><button type="button" class="btn" onClick={(e)=>showDetail(StoreProduct._id)} data-bs-toggle="modal" data-bs-target="#myModal" > Details <i className="far fa-eye"/></button></div>
-             
+               <div></div>
+               <div className="row">
+      <div className="col">
+        <button
+          type="button"
+          className="btn"
+          onClick={(e) => showDetail(StoreProduct._id)}
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        >
+          Details <i className="far fa-eye" />
+        </button>
+      </div>
+      <div className="col"> 
+      <Link to= {`/client/delivery/${StoreProduct._id}`}> <button type="button" className="btn" style={{borderRadius:"20px", paddingLeft:"10px" }}>
+           <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button></Link>
+      </div>
+    </div>
+               <div></div>
               </div>
 
             <div>
