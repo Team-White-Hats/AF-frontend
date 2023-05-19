@@ -7,6 +7,8 @@ import AdminLayout from "../layout/admin/AdminLayout";
 import Header from "../components/admin/header/Header";
 import ClientHeader from "../components/client/Header/Header";
 import Footer from "../components/client/Footer/Footer";
+import ReviewPage from "../pages/client/reviewManagement/ReviewPage";
+import ReviewView from "../pages/admin/reviewManagement/ReviewView";
 import TourTripAdmin from "../pages/admin/tourTripManagement/TourTripAdmin";
 import TourTripIndex from "../pages/client/tourTripManagement/index";
 import BookYourtrip from "../pages/client/tourTripManagement/bookYourTrip";
@@ -62,6 +64,7 @@ const AppRoutes = () => {
 
 							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
 							<Route path="/client/:cat" render={(props) => <ProductView/>} exact/>;
+							<Route path="/client/reviewpage" render={(props) => <ReviewPage/>} exact/>; 
 						</Switch>
 						<Footer />
 						</ClientLayout>
@@ -90,6 +93,7 @@ const AppRoutes = () => {
 									exact
 								/>
 								;
+								<Route path="/admin/reviewadmin" render={(props) => <ReviewView/>} exact/>;
 							</Switch>
 						</AdminLayout>
 					</Route>
