@@ -120,7 +120,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/reviewpage"
 									style={{
 										color: "white",
 										fontSize: 16,

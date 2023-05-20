@@ -8,7 +8,6 @@ import {
 	MDBCol,
 	MDBCardTitle,
 	MDBCardText,
-	MDBBtn,
 } from "mdb-react-ui-kit";
 import "./index.css";
 
@@ -30,44 +29,15 @@ function TourTripIndex() {
 										alt="..."
 									/>
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
+										<MDBCardTitle
+											style={{
+												fontWeight: 600,
+												fontSize: 18,
+											}}>
 											Culture Products Workshops
 										</MDBCardTitle>
-										<MDBCardText style={{fontSize:15}}>
-											Sri Lanka, formerly known as
-											Ceylon and officially the
-											Democratic Socialist Republic
-											of Sri Lanka, is an island
-											country in South Asia.Colour,
-											creativity and commerce abound
-											when it comes to arts and
-											crafts. Tradition and heritage
-											are king, and people have been
-											creating everything from
-											jewellery to masks,
-											lacquerware.
-										</MDBCardText>
-										<button
-										onClick={() => {
-											window.location.href = "/client/about-sri-lanka";
-										  }}
-										  style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}
-											>
-											View
-										</button>
-									</MDBCardBody>
-								</MDBCard>
-								<MDBCard className="card aboutCard">
-									<MDBCardImage
-										src="https://mediaim.expedia.com/localexpert/1169815/47426855-a6dd-4b34-a5e3-092ba10dabeb.jpg?impolicy=resizecrop&rw=1005&rh=565"
-										position="top"
-										alt="..."
-									/>
-									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
-											Before You Go
-										</MDBCardTitle>
-										<MDBCardText style={{fontSize:15}}>
+										<MDBCardText
+											style={{ fontSize: 15 }}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -83,9 +53,61 @@ function TourTripIndex() {
 										</MDBCardText>
 										<button
 											onClick={() => {
-												window.location.href = "/client/before-you-go";
-											  }}
-											style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}>
+												window.location.href =
+													"/client/about-sri-lanka";
+											}}
+											style={{
+												backgroundColor: "#009ffd",
+												color: "white",
+												width: 80,
+												height: 35,
+												borderRadius: 5,
+											}}>
+											View
+										</button>
+									</MDBCardBody>
+								</MDBCard>
+								<MDBCard className="card aboutCard">
+									<MDBCardImage
+										src="https://mediaim.expedia.com/localexpert/1169815/47426855-a6dd-4b34-a5e3-092ba10dabeb.jpg?impolicy=resizecrop&rw=1005&rh=565"
+										position="top"
+										alt="..."
+									/>
+									<MDBCardBody>
+										<MDBCardTitle
+											style={{
+												fontWeight: 600,
+												fontSize: 18,
+											}}>
+											Before You Go
+										</MDBCardTitle>
+										<MDBCardText
+											style={{ fontSize: 15 }}>
+											Sri Lanka, formerly known as
+											Ceylon and officially the
+											Democratic Socialist Republic
+											of Sri Lanka, is an island
+											country in South Asia.Colour,
+											creativity and commerce abound
+											when it comes to arts and
+											crafts. Tradition and heritage
+											are king, and people have been
+											creating everything from
+											jewellery to masks,
+											lacquerware.
+										</MDBCardText>
+										<button
+											onClick={() => {
+												window.location.href =
+													"/client/before-you-go";
+											}}
+											style={{
+												backgroundColor: "#009ffd",
+												color: "white",
+												width: 80,
+												height: 35,
+												borderRadius: 5,
+											}}>
 											View
 										</button>
 									</MDBCardBody>
@@ -98,10 +120,15 @@ function TourTripIndex() {
 									/>
 
 									<MDBCardBody>
-										<MDBCardTitle style={{fontWeight: 600, fontSize:18}}>
+										<MDBCardTitle
+											style={{
+												fontWeight: 600,
+												fontSize: 18,
+											}}>
 											Book Your Trip
 										</MDBCardTitle>
-										<MDBCardText style={{fontSize:15}}>
+										<MDBCardText
+											style={{ fontSize: 15 }}>
 											Sri Lanka, formerly known as
 											Ceylon and officially the
 											Democratic Socialist Republic
@@ -115,11 +142,18 @@ function TourTripIndex() {
 											jewellery to masks,
 											lacquerware.
 										</MDBCardText>
-										<button style={{backgroundColor: "#009ffd", color: "white", width: 80, height: 35,  borderRadius: 5}}
+										<button
+											style={{
+												backgroundColor: "#009ffd",
+												color: "white",
+												width: 80,
+												height: 35,
+												borderRadius: 5,
+											}}
 											onClick={() => {
-												window.location.href = "/client/book-your-trip";
-											  }}
-											>
+												window.location.href =
+													"/client/book-your-trip";
+											}}>
 											View
 										</button>
 									</MDBCardBody>
