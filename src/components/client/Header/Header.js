@@ -23,9 +23,8 @@ export default function ClientHeader() {
 				dark
 				style={{
 					height: 70,
-					backgroundColor: "#2a2a72",
-					background:
-						"linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
+					backgroundColor: "rgb(0, 33, 65)",
+
 				}}>
 				<MDBContainer fluid>
 					<MDBNavbarBrand style={{ marginRight: 120 }} href="#">
@@ -73,13 +72,13 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/product/producthome"
 									style={{
 										color: "white",
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Get Your Products
+									 Products
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
@@ -95,7 +94,7 @@ export default function ClientHeader() {
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Plan Your trip
+									 Trips
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
@@ -111,7 +110,7 @@ export default function ClientHeader() {
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Upcoming Events
+									 Events
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
