@@ -25,7 +25,7 @@ const Sidebar = () => {
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
                 <span className="title">Tour Trips</span>
             </Link></li>
-            <li><Link to="/admin/package">
+            <li><Link to="/admin/reviewadmin">
                 <span className="icon"><i className="fa fa-archive" aria-hidden="true"/></span>
                 <span className="title">Feedbacks</span>
             </Link></li>

@@ -16,9 +16,6 @@ export default function TourTripDetailsPage() {
 
     const location = useLocation();
 
-
-    // let navigate = useNavigate();
-
 	const [placeName, setPlaceName] = useState("");
 	const [startLocation, setStartLocation] = useState("");
 	const [endLocation, setEndLocation] = useState("");
@@ -78,22 +75,22 @@ export default function TourTripDetailsPage() {
 							<MDBCardText>
 								{description}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 500 }}>
+							<MDBCardText style={{ marginRight: 300 }}>
 								Start Location : {startLocation}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 500 }}>
+							<MDBCardText style={{ marginRight: 300 }}>
 								End Location : {endLocation}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 530 }}>
+							<MDBCardText style={{ marginRight: 330 }}>
 								Transport Type : {transportType}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 530 }}>
+							<MDBCardText style={{ marginRight: 310 }}>
 								Entry Price : Rs. {entryPrice}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 550 }}>
+							<MDBCardText style={{ marginRight: 360 }}>
 								Route : {route}
 							</MDBCardText>
-							<MDBCardText style={{ marginRight: 550 }}>
+							<MDBCardText style={{ marginRight: 350 }}>
 								Status : {statusType}
 							</MDBCardText>
 						</MDBCol>

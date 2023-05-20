@@ -43,6 +43,16 @@ function TourTripAdmin() {
 			{ key: "entryPrice", message: "Entry Price is required!" },
 			{ key: "products", message: "Products is required!" },
 			{ key: "statusType", message: "Status Type is required!" },
+			{
+				key: "transportType",
+				message: "Transport Type is required!",
+			},
+			{
+				key: "productImages",
+				message: "Product Image is required!",
+			},
+			{ key: "route", message: "Route is required!" },
+			{ key: "description", message: "Description is required!" },
 		];
 
 		requiredFields.forEach((field) => {
@@ -107,7 +117,6 @@ function TourTripAdmin() {
 
 	function updateTourTrip(e) {
 		e.preventDefault();
-		alert("Going to Update Tour Trip Details");
 		const newPackage = {
 			placeName,
 			startLocation,
@@ -141,9 +150,8 @@ function TourTripAdmin() {
 			window.location.href = "/admin/tourtripadmin";
 		});
 	}
-	
+
 	const deleteTourTrip = () => {
-		alert("You want to delete Course");
 		Axios.delete(
 			`http://localhost:8000/api/tourtrip/delete/${tourTrip_ids}`,
 		).then((res) => {});
@@ -173,6 +181,7 @@ function TourTripAdmin() {
 		setProducts(StoreTourTrip.products);
 		setProductImages(StoreTourTrip.productImages);
 		setStatusType(StoreTourTrip.statusType);
+		setRoute(StoreTourTrip.route);
 	};
 
 	const loadPackageDetailsdelete = (StoreTourTrip) => {
@@ -188,6 +197,7 @@ function TourTripAdmin() {
 		setProducts(StoreTourTrip.products);
 		setProductImages(StoreTourTrip.productImages);
 		setStatusType(StoreTourTrip.statusType);
+		setRoute(StoreTourTrip.route);
 	};
 
 	//image
@@ -300,26 +310,25 @@ function TourTripAdmin() {
 	};
 
 	const columns = [
-        { title: "Place Name", field: "placeName" },
-        { title: "Start Location", field: "startLocation" },
-        { title: "End Location", field: "endLocation" },
-        { title: "Transport Type", field: "transportType" },
-        { title: "Description", field: "description" },
-    ];
-
+		{ title: "Place Name", field: "placeName" },
+		{ title: "Start Location", field: "startLocation" },
+		{ title: "End Location", field: "endLocation" },
+		{ title: "Transport Type", field: "transportType" },
+		{ title: "Description", field: "description" },
+	];
 
 	const downLoadPdf = () => {
-        const doc = new jsPDF();
-        doc.text(placeName + " Tour Trip Details Report", 20, 10);
-        doc.autoTable({
-            columns: columns.map((col) => ({
-                ...col,
-                dataKey: col.field,
-            })),
-            body: placeName,
-        });
-        doc.save(placeName + " Tour Trip Details Report");
-    };
+		const doc = new jsPDF();
+		doc.text(placeName + " Tour Trip Details Report", 20, 10);
+		doc.autoTable({
+			columns: columns.map((col) => ({
+				...col,
+				dataKey: col.field,
+			})),
+			body: listOftrips,
+		});
+		doc.save(placeName + " Tour Trip Details Report");
+	};
 
 	return (
 		<div>
@@ -335,7 +344,8 @@ function TourTripAdmin() {
 									<div className="d-flex justify-content-start align-items-center">
 										<button
 											id="btn-generate-report"
-											className="btn me-3"  onClick={() => downLoadPdf()}>
+											className="btn me-3"
+											onClick={() => downLoadPdf()}>
 											Generate Report
 										</button>
 									</div>
@@ -420,11 +430,8 @@ function TourTripAdmin() {
 										<option value="Anuradhapura">
 											Anuradhapura
 										</option>
-										<option value="Badulla">
-											Badulla
-										</option>
-										<option value="Colombo">
-											Colombo
+										<option value="Ambalangoda">
+											Ambalangoda
 										</option>
 										<option value="Colombo">
 											Colombo
@@ -450,14 +457,8 @@ function TourTripAdmin() {
 										<option value="Kegalle">
 											Kegalle
 										</option>
-										<option value="Kilinochchi">
-											Kilinochchi
-										</option>
 										<option value="Kurunegala">
 											Kurunegala
-										</option>
-										<option value="Mannar">
-											Mannar
 										</option>
 										<option value="Matale">
 											Matale
@@ -468,26 +469,11 @@ function TourTripAdmin() {
 										<option value="Monaragala">
 											Monaragala
 										</option>
-										<option value="Mullaitivu">
-											Mullaitivu
-										</option>
-										<option value="Nuwara Eliya">
-											Nuwara Eliya
-										</option>
 										<option value="Polonnaruwa">
 											Polonnaruwa
 										</option>
-										<option value="Puttalam">
-											Puttalam
-										</option>
 										<option value="Ratnapura">
 											Ratnapura
-										</option>
-										<option value="TTrincomalee">
-											Trincomalee
-										</option>
-										<option value="Vavuniya">
-											Vavuniya
 										</option>
 									</select>
 									<p class="alert-txt">
@@ -567,19 +553,31 @@ function TourTripAdmin() {
 											value="0">
 											Products
 										</option>
-										<option value="Batik textiles">
-											Batik textiles
+										<option value="Handloom Textiles">
+											Handloom Textiles
+										</option>
+										<option value="Wood Carvings">
+											Wood Carvings
+										</option>
+										<option value="Brass Metalwork">
+											Brass Metalwork
+										</option>
+										<option value="Lacquer(Laksha)">
+											Lacquer(Laksha)
+										</option>
+										<option value="Batik Textiles">
+											Batik Textiles
 										</option>
 										<option value="Handicrafts">
 											Handicrafts
 										</option>
-										<option value="Gems and jewelry">
-											Gems and jewelry
-										</option>
-										<option value="ART works">
-											ART works
+										<option value="Masks">
+											Masks
 										</option>
 									</select>
+									<p class="alert-txt">
+										{formErrors.products}
+									</p>
 								</div>
 
 								<div className="col">
@@ -643,8 +641,9 @@ function TourTripAdmin() {
 									<div class="form-group">
 										<textarea
 											class="form-control"
+											style={{ height: 150 }}
 											id="exampleFormControlTextarea1"
-											rows="6"
+											rows="10"
 											value={description}
 											placeholder="Description"
 											onChange={(event) => {

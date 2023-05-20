@@ -63,7 +63,7 @@ const AppRoutes = () => {
 							;
 
 							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
-							<Route path="/client/:cat" render={(props) => <ProductView/>} exact/>;
+							<Route path="/client/product/:cat" render={(props) => <ProductView/>} exact/>;
 							<Route path="/client/reviewpage" render={(props) => <ReviewPage/>} exact/>; 
 						</Switch>
 						<Footer />

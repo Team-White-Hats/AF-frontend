@@ -18,8 +18,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
 function BookYourtrip() {
 	const [firstName, setFirstName] = useState("");
@@ -31,7 +31,6 @@ function BookYourtrip() {
 	const [emailAddress, setEmailAddress] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [bookingSuccess, setBookingSuccess] = useState(false);
-
 
 	const handleFirstNameChange = (e) => {
 		setFirstName(e.target.value);
@@ -96,7 +95,6 @@ function BookYourtrip() {
 			setBookingSuccess(true);
 			console.log("Form submitted successfully");
 		} catch (error) {
-
 			console.error("Error submitting form:", error);
 		}
 	};
@@ -106,12 +104,12 @@ function BookYourtrip() {
 			<MDBRow className="justify-content-center align-items-center m-5">
 				<MDBCard>
 					<MDBCardBody className="px-4">
-					{bookingSuccess && (
-              <Alert severity="success">
-                <AlertTitle>Success</AlertTitle>
-                Booking created successfully!
-              </Alert>
-            )}
+						{bookingSuccess && (
+							<Alert severity="success">
+								<AlertTitle>Success</AlertTitle>
+								Booking created successfully!
+							</Alert>
+						)}
 						<h3 className="fw-bold mb-4 pb-2 pb-md-0 mb-md-5 text-center mt-2">
 							Book Your Tour Trip
 						</h3>
@@ -236,7 +234,14 @@ function BookYourtrip() {
 						</MDBRow>
 
 						<button
-						style={{width: 100, fontSize: 16, height: 42, backgroundColor: "#009ffd", color: "white",  borderRadius: 10}}
+							style={{
+								width: 100,
+								fontSize: 16,
+								height: 42,
+								backgroundColor: "#009ffd",
+								color: "white",
+								borderRadius: 10,
+							}}
 							size="lg"
 							onClick={handleSubmit}>
 							Submit
