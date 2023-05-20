@@ -133,7 +133,7 @@ function updateProduct(e) {
   
   }
     const  deleteProduct= () => {
-      alert("You want to delete Course");
+      alert("You want to delete product");
       Axios.delete(`http://localhost:8000/api/product/${product_ids}`).then((res) => {
           
        
