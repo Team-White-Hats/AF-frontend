@@ -70,8 +70,8 @@ export default function AboutSriLanka({ tourTrip }) {
 							<MDBRow>
 								{listOftrips.map((trip, index) => (
 									<MDBCard
-										className="card trip-details"
-										style={{ marginBottom: 40 }}>
+										className="card"
+										style={{ marginBottom: 40, width: 400, marginRight: 50, marginLeft: 40 }}>
 										<MDBCardImage
 											src={trip.productImages}
 											position="top"

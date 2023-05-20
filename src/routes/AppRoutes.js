@@ -22,6 +22,7 @@ import TourTripDetailsBooking from "../pages/admin/tourTripManagement/TourTripBo
 import Login from "../components/client/login/login";
 import Register from "../components/client/Register/Register";
 import UserView from "../pages/admin/clientManagement/ClientView";
+import Homepage from "../pages/client/HomePage";
 
 const AppRoutes = () => {
 
@@ -34,6 +35,12 @@ const AppRoutes = () => {
 						<ClientHeader />
 						<ClientLayout>
 						<Switch>
+						<Route
+								path="/client/home"
+								render={(props) => <Homepage />}
+								exact
+							/>
+							;
 							<Route
 								path="/client/tour-trip-details"
 								render={(props) => <TourTripIndex />}

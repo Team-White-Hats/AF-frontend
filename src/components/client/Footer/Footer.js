@@ -18,9 +18,7 @@ export default function Footer() {
 		<MDBFooter
 			expand="lg"
 			style={{
-				backgroundColor: "#2a2a72",
-				background:
-					"linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
+				backgroundColor: "rgb(0, 33, 65)",
 			}}>
 			<MDBContainer fluid>
 				<MDBRow style={{ marginLeft: 50 }}>
@@ -167,9 +165,7 @@ export default function Footer() {
 				<div
 					className="text-center p-1"
 					style={{
-						backgroundColor: "#2a2a72",
-						background:
-							"linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
+						backgroundColor: "rgb(0, 33, 65)",
 						color: "white",
 						fontWeight: 50,
 						fontSize: 10,
