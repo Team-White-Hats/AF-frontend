@@ -23,6 +23,12 @@ import Login from "../components/client/login/login";
 import Register from "../components/client/Register/Register";
 import UserView from "../pages/admin/clientManagement/ClientView";
 import Homepage from "../pages/client/HomePage";
+import ProductDelivery from "../pages/client/productClient/ProductDelivery";
+import EventDetails from '../pages/client/event/eventsDetailsPage/eventsDetailsPage'
+import EventsHomePage from '../pages/client/event/eventsHomePage/eventsHomePage'
+import RegisterEvent from '../pages/client/event/registerEventPage/registerEvent'
+import EventAdmin from '../pages/admin/eventManagement/eventAdmin'
+import OrderAdmin from '../pages/admin/productManagement/OrderAdmin'
 
 const AppRoutes = () => {
 
@@ -31,57 +37,60 @@ const AppRoutes = () => {
 		<div>
 			<Router>
 				<Switch>
-					<Route path="/client/:path?" exact>
+				<Route path='/client/:paths/:path' exact>
+					<div style={{"height": "auto"}}>
 						<ClientHeader />
 						<ClientLayout>
+						<main>
 						<Switch>
-						<Route
-								path="/client/home"
-								render={(props) => <Homepage />}
-								exact
-							/>
-							;
-							<Route
-								path="/client/tour-trip-details"
+						   <Route path="/client/tour/home" render={(props) => <Homepage/>} exact/>;
+						   <Route
+								path="/client/tour/tour-trip-details"
 								render={(props) => <TourTripIndex />}
 								exact
 							/>
-							;
 							<Route
-								path="/client/book-your-trip"
+								path="/client/tour/book-your-trip"
 								render={(props) => <BookYourtrip />}
 								exact
 							/>
 							;
 							<Route
-								path="/client/before-you-go"
+								path="/client/tour/before-you-go"
 								render={(props) => <BeforeYouGo />}
 								exact
 							/>
 							;
 							<Route
-								path="/client/about-sri-lanka"
+								path="/client/tour/about-sri-lanka"
 								render={(props) => <AboutSriLanka />}
 								exact
 							/>
 							;
 							<Route
-								path="/client/tour-trip"
+								path="/client/tour/tour-trip"
 								render={(props) => <TourTripDetailsPage />}
 								exact
 							/>
 							;
 
-							<Route path="/client/producthome" render={(props) => <ProductHome/>} exact/>;
-							<Route path="/client/product/:cat" render={(props) => <ProductView/>} exact/>;
-							<Route path="/client/reviewpage" render={(props) => <ReviewPage/>} exact/>; 
-							<Route path="/client/login" render={(props) => <Login/>} exact/>; 
-							<Route path="/client/register" render={(props) => <Register/>} exact/>; 
-						</Switch>
-						<Footer />
-						</ClientLayout>
-					</Route>
-               
+							
+							<Route path="/client/review/reviewpage" render={(props) => <ReviewPage/>} exact/>; 
+							<Route path="/client/user/login" render={(props) => <Login/>} exact/>; 
+							<Route path="/client/user/register" render={(props) => <Register/>} exact/>; 
+							<Route path="/client/product/producthome" render={(props) => <ProductHome/>}/>;
+							<Route path="/client/product/:cat" render={(props) => <ProductView/>}/>;
+							<Route path="/client/delivery/:id" render={(props) => <ProductDelivery/>}/>;
+							<Route path="/client/event/:id" render={(props) => <EventDetails/>} exact/>; 
+							<Route path="/client/eventhome/home" render={(props) => <EventsHomePage/>} exact/>; 
+							<Route path="/client/eventregister/register" render={(props) => <RegisterEvent/>} exact/>; 
+
+							</Switch>
+                                </main>
+								<Footer/>
+                            </ClientLayout>
+                        </div>
+                    </Route>
 					<Route path="/admin/:path?" exact>
 						<AdminLayout class="wrapper">
 							<Header />
@@ -90,6 +99,12 @@ const AppRoutes = () => {
 								<Route
 									path="/admin/productadmin"
 									render={(props) => <ProductAdmin />}
+									exact
+								/>
+								;
+								<Route
+									path="/admin/orderAdmin"
+									render={(props) => <OrderAdmin />}
 									exact
 								/>
 								;
@@ -107,6 +122,7 @@ const AppRoutes = () => {
 								;
 								<Route path="/admin/reviewadmin" render={(props) => <ReviewView/>} exact/>;
 								<Route path="/admin/useradmin" render={(props) => <UserView/>} exact/>;
+								<Route path="/admin/eventsadmin" render={(props) => <EventAdmin/>} exact/>;
 							</Switch>
 						</AdminLayout>
 					</Route>

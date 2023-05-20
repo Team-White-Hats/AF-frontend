@@ -77,7 +77,7 @@ function ReviewForm() {
 			title: 'Your Review added successfully!',
 		}).then(function () {
 		  // Redirect the user
-		  window.location.href = "/client/reviewpage";
+		  window.location.href = "/client/review/reviewpage";
 		});
 	};
 	

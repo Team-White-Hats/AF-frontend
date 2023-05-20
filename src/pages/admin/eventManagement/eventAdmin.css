@@ -93,7 +93,7 @@
         height: 208px;
     }
     
-    #reg {
+    .btnRegister {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         border: 3px solid rgba(0, 0, 0, 0.24);
@@ -110,7 +110,7 @@
         color: #FFFFFF;
     }
     
-    #edit{
+    .btnUpdate {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         border: 3px solid rgba(0, 0, 0, 0.24);
@@ -127,7 +127,7 @@
         color: #FFFFFF;
     }
     
-    #delete {
+    .btnDelete {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         border: 3px solid rgba(0, 0, 0, 0.24);
@@ -144,7 +144,7 @@
         color: #FFFFFF;
     }
     
-    #btnAddImg {
+    .btnAddImg {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         width: 31px;
@@ -156,7 +156,7 @@
         margin: 10px;
     }
     
-    #btnEditImg {
+    .btnEditImg {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         width: 31px;
@@ -168,7 +168,7 @@
         margin: 10px;
     }
     
-    #btnImgDelete {
+    .btnImgDelete {
         background-color: #2a2a72;
         background: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
         height: 31px;

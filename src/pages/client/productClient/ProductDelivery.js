@@ -90,7 +90,7 @@ function ProductDelivery() {
             title: 'Your Product details added to the System',
         }).then(function () {
           // Redirect the user
-          window.location.href = "/admin/productadmin";
+          window.location.href = "/client/product/producthome";
         });
       };
 
@@ -252,7 +252,7 @@ function ProductDelivery() {
   {isDivOpen && (
   <div className="modal" id="myModal">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content" style={{width:850}}>
             <div class="modal-header" toggle={closeModal}>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

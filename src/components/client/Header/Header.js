@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import {
 	MDBNavbar,
 	MDBContainer,
@@ -56,7 +57,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 									<MDBNavbarLink
-									href="/client/home"
+									href="/client/tour/home"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -72,7 +73,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="/client/producthome"
+									href="/client/product/producthome"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -88,7 +89,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="/client/tour-trip-details"
+									href="/client/tour/tour-trip-details"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -104,7 +105,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/eventhome/home"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -120,7 +121,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="/client/reviewpage"
+									href="/client/review/reviewpage"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -151,10 +152,11 @@ export default function ClientHeader() {
 									marginRight: 20,
 									fontWeight: 600,
 									marginTop: 5,
-								}}>
-								<Person
+								}}> <Link to={`/client/user/login`} >
+								<Person 
 								style={{ color: "white", padding: 0 }}
 								/>
+								</Link>
 							</MDBNavbarItem>
 						</MDBNavbarNav>
 					</MDBCollapse>

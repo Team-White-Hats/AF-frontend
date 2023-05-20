@@ -60,16 +60,17 @@ function LoginPage() {
 					);
 					setInterval(() => {
 						if (result.data.roleData.isUser === true) {
-							history.push("/client/home");
+							history.push("/client/tour/home");
 							window.location.reload();
 						} else {
-							history.push("/admin");
+							history.push("/admin/useradmin");
 							window.location.reload();
 						}
 					}, 1500);
 				})
 				.catch((err) => {
 					console.log(err);
+					alert("Failed to Login");
 					setNotify({
 						isOpen: true,
 						message: "Failed to Login",

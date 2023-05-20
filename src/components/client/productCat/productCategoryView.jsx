@@ -21,7 +21,7 @@ function ProductCategory(){
     const data = [
         {
           cateImg:  Batik,
-          cateName: "Handloom Textiles",
+          cateName: "Handlom Textiles",
         },
         {
           cateImg: Handicraft,
@@ -50,13 +50,13 @@ function ProductCategory(){
           {data.map((value, index) => {
 
             return (
-            <div class="card" id="topcrs-crd" style={{maxHeight:"330px"}} >
+            <div class="card" id="topcrs-crd" >
                 <div class="image">
               <img src={value.cateImg} class="card-img-top" alt="..."/>
               </div>
               <div class="card-body" onclick="openPopup()">
               <div> <h3>{value.cateName}</h3></div>
-              <div style={{marginTop:"10px",display: "flex",justifyContent:"center"}}  > <Link to={`/client/product/${value.cateName}`} ><button type="button" class="btn" > Shop Now <i className="fa fa-shopping-bag"/></button> </Link></div>
+              <div style={{marginTop:"10px",display: "flex",justifyContent:"center"}}  > <Link to={`/client/product/${value.cateName}`} ><button type="button" class="btn" id="btn" style={{width: 100, padding: 5}}  > Shop Now <i className="fa fa-shopping-bag"/></button> </Link></div>
               </div>
 
             <div>

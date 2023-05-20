@@ -54,7 +54,7 @@ function TourTripIndex() {
 										<button
 											onClick={() => {
 												window.location.href =
-													"/client/about-sri-lanka";
+													"/client/tour/about-sri-lanka";
 											}}
 											style={{
 												backgroundColor: "#009ffd",
@@ -99,7 +99,7 @@ function TourTripIndex() {
 										<button
 											onClick={() => {
 												window.location.href =
-													"/client/before-you-go";
+													"/client/tour/before-you-go";
 											}}
 											style={{
 												backgroundColor: "#009ffd",
@@ -152,7 +152,7 @@ function TourTripIndex() {
 											}}
 											onClick={() => {
 												window.location.href =
-													"/client/book-your-trip";
+													"/client/tour/book-your-trip";
 											}}>
 											View
 										</button>
