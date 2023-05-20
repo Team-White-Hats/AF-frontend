@@ -21,6 +21,10 @@ const Sidebar = () => {
                 <span className="icon"><i className="fa fa-shopping-cart" aria-hidden="true"/></span>
                 <span className="title">Orders</span>
             </Link></li>
+            <li><Link to="/admin/tourtripbooking">
+                <span className="icon"><i class="fa-sharp fa-solid fa-calendar" aria-hidden="true"/></span>
+                <span className="title">Trip Bookings</span>
+            </Link></li>
             <li><Link to="/admin/tourtripadmin">
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
                 <span className="title">Tour Trips</span>

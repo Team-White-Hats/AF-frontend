@@ -60,7 +60,7 @@ function LoginPage() {
 					);
 					setInterval(() => {
 						if (result.data.roleData.isUser === true) {
-							history.push("/client/reviewpage");
+							history.push("/client/home");
 							window.location.reload();
 						} else {
 							history.push("/admin");

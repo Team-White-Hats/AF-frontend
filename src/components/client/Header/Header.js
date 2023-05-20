@@ -56,7 +56,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 									<MDBNavbarLink
-									href="#"
+									href="/client/home"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -72,7 +72,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="/client/product/producthome"
+									href="/client/producthome"
 									style={{
 										color: "white",
 										fontSize: 16,
