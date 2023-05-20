@@ -77,7 +77,7 @@ return(
 
         <div className="row">
             <div className="col-sm-5">
-            <div class="card" id="topcrs-crd" >
+            <div class="card" id="topcrs-crd" style={{height:450}}>
                 <div class="image">
               <img src={StoreProduct.productImage} class="card-img-top" alt="..."/>
               </div>
@@ -87,8 +87,8 @@ return(
                 <h4 class="pkg-price" > Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $ &nbsp;{StoreProduct.productPrice}</h4>
                 
                 </div>
-               <div> <p class="card-text">{StoreProduct.smallDes}</p> </div>
-               <div><button type="button" class="btn" onClick={(e)=>showDetail(StoreProduct._id)} data-bs-toggle="modal" data-bs-target="#myModal" > Details <i className="far fa-eye"/></button></div>
+               <div > <p class="card-text">{StoreProduct.smallDes}</p> </div>
+               <div style={{paddingTop:40}}><button type="button" id="btn" class="btn"   style={{width: 100, padding: 5}}onClick={(e)=>showDetail(StoreProduct._id)} data-bs-toggle="modal" data-bs-target="#myModal" > Details <i className="far fa-eye"/></button></div>
              
               </div>
 

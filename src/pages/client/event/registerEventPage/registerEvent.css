@@ -1,0 +1,55 @@
+.image1{
+    position: relative;
+    width:30%;
+    height:50%;
+    margin-top: -800px;
+    margin-left: 40px;
+    border-radius: 30px;
+    box-shadow: inset;
+   
+}
+
+.image2{
+
+    width:30%;
+    height:40%;
+    margin-left: 200px;
+    border-radius: 10px;
+    margin-top: -380px;
+}
+
+.image3{
+
+    width:20%;
+    height:30%;
+    margin-left: 400px;
+    border-radius: 10px;
+    margin-top: -380px;
+}
+
+
+#registercontainer{
+
+  
+    justify-content:center;
+    align-items: center;
+    margin-top: 50px;
+    width:600px;
+    margin-left: 850px;
+
+   
+   
+}
+
+.headlineRegister{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 40px;
+    font-size:50px;
+    padding-left: 20px;
+}
+#findmore{
+
+    margin-left: 400px;
+    margin-top: 10px;
+}

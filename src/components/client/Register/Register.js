@@ -61,7 +61,7 @@ function LoginPage() {
               message: "User Registration Successful!",
               type: "success",
             });
-            history.push("/client/login"); // Redirect to login page after successful registration
+            history.push("/client/user/login"); // Redirect to login page after successful registration
           })
           .catch((err) => {
             console.log(err);

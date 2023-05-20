@@ -19,7 +19,11 @@ const Header = () => {
                         <li className="mt-1">
                             <p className="d-inline me-2"><i className="fa fa-sign-out logoutIcon" aria-hidden="true"/>
                             </p>
-                            <p className="d-inline ms-2 me-2 fw-bold profileText">Tharindu</p>
+                            <button style={{width: 100, height: 40, backgroundColor: "#009ffd"}} onClick={() => {
+								window.location.href =
+									"/client/tour/home";
+							}}>Logout</button>
+                            {/* <p className="d-inline ms-2 me-2 fw-bold profileText">Tharindu</p> */}
                         </li>
                         <li>
                             <Link to="/client">

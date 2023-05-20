@@ -5,11 +5,11 @@ import {Link} from "react-router-dom";
 const Sidebar = () => {
     return (<div className="sidebar">
         <ul>
-            <li><Link to="/admin/">
+            <li><Link to="/admin/useradmin">
                 <span className="icon"><i className="fa-solid fa-user-group"/></span>
                 <span className="title">Client</span>
             </Link></li>
-            <li><Link to="/admin/driver">
+            <li><Link to="/admin/eventsadmin">
                 <span className="icon"><i className="fas fa-calendar"/></span>
                 <span className="title">Events</span>
             </Link></li>
@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <span className="icon"><i className="fas fa-cubes" aria-hidden="true"/></span>
                 <span className="title">Products</span>
             </Link></li>
-            <li><Link to="/admin/productorder">
+            <li><Link to="/admin/orderAdmin">
                 <span className="icon"><i className="fa fa-shopping-cart" aria-hidden="true"/></span>
                 <span className="title">Orders</span>
             </Link></li>

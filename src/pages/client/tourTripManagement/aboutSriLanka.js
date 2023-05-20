@@ -28,7 +28,7 @@ export default function AboutSriLanka({ tourTrip }) {
 	const callEvent = (tourTrip) => {
 		console.log(tourTrip);
 
-		history.push("/client/tour-trip", {
+		history.push("/client/tour/tour-trip", {
 			placeName: tourTrip.placeName,
 			startLocation: tourTrip.startLocation,
 			endLocation: tourTrip.endLocation,
@@ -62,7 +62,7 @@ export default function AboutSriLanka({ tourTrip }) {
 							}}
 							onClick={() => {
 								window.location.href =
-									"/client/book-your-trip";
+									"/client/tour/book-your-trip";
 							}}>
 							Book Your Trip
 						</button>
