@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import {
 	MDBNavbar,
 	MDBContainer,
@@ -23,9 +24,8 @@ export default function ClientHeader() {
 				dark
 				style={{
 					height: 70,
-					backgroundColor: "#2a2a72",
-					background:
-						"linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
+					backgroundColor: "rgb(0, 33, 65)",
+
 				}}>
 				<MDBContainer fluid>
 					<MDBNavbarBrand style={{ marginRight: 120 }} href="#">
@@ -57,7 +57,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 									<MDBNavbarLink
-									href="#"
+									href="/client/tour/home"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -73,13 +73,13 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/product/producthome"
 									style={{
 										color: "white",
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Get Your Products
+									 Products
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
@@ -89,13 +89,13 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="/client/tour-trip-details"
+									href="/client/tour/tour-trip-details"
 									style={{
 										color: "white",
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Plan Your trip
+									 Trips
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
@@ -105,13 +105,13 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/eventhome/home"
 									style={{
 										color: "white",
 										fontSize: 16,
 										fontFamily: "monospace",
 									}}>
-									Upcoming Events
+									 Events
 								</MDBNavbarLink>
 							</MDBNavbarItem>
 							<MDBNavbarItem
@@ -121,7 +121,7 @@ export default function ClientHeader() {
 									fontWeight: 600,
 								}}>
 								<MDBNavbarLink
-									href="#"
+									href="/client/review/reviewpage"
 									style={{
 										color: "white",
 										fontSize: 16,
@@ -152,10 +152,11 @@ export default function ClientHeader() {
 									marginRight: 20,
 									fontWeight: 600,
 									marginTop: 5,
-								}}>
-								<Person
+								}}> <Link to={`/client/user/login`} >
+								<Person 
 								style={{ color: "white", padding: 0 }}
 								/>
+								</Link>
 							</MDBNavbarItem>
 						</MDBNavbarNav>
 					</MDBCollapse>

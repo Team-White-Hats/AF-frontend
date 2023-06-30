@@ -14,7 +14,7 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-function NewProducts(){
+function NewProducts(addToCart){
     const [productName,setProductName] = useState("");
     const [productCategory,setproduct_category] = useState("");
     const [productPrice,setproduct_price] = useState("");
@@ -63,7 +63,7 @@ function NewProducts(){
           {listOfProducts && listOfProducts.map((StoreProduct,i) => {
 
             return (
-            <div class="card" id="topcrs-crd" >
+            <div class="card" id="topcrs-crd" style={{height:453}}>
                 <div class="image">
               <img src={StoreProduct.productImage} class="card-img-top" alt="..."/>
               </div>
@@ -74,8 +74,28 @@ function NewProducts(){
                 
                 </div>
                <div> <p class="card-text">{StoreProduct.smallDes}</p> </div>
-               <div><button type="button" class="btn" onClick={(e)=>showDetail(StoreProduct._id)} data-bs-toggle="modal" data-bs-target="#myModal" > Details <i className="far fa-eye"/></button></div>
-             
+               <div></div>
+               <div className="row" style={{paddingTop:"20px"}}>
+      <div className="col">
+        <button
+          type="button"
+          className="btn"
+          id="btn"
+          onClick={(e) => showDetail(StoreProduct._id)}
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          style={{width: 100, padding: 5}}
+        >
+          Details <i className="far fa-eye" />
+        </button>
+      </div>
+      <div className="col"  > 
+      <Link to= {`/client/delivery/${StoreProduct._id}`}> <button type="button" id="btn" className="btn" style={{borderRadius:"20px", paddingLeft:"10px",width:"10px"}}>
+           <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </button></Link>
+      </div>
+    </div>
+               <div></div>
               </div>
 
             <div>
@@ -92,8 +112,8 @@ function NewProducts(){
       </Carousel>
 
 
-      <div class="modal" id="myModal">
-        <div class="modal-dialog">
+      <div class="modal" id="myModal" style={{width:1500}}>
+        <div class="modal-dialog" style={{width:1500}}>
           <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -101,19 +121,19 @@ function NewProducts(){
             <div class="modal-body">
             <div className="row">
             <div className="col-sm-5">
-            <div class="img-modal">  <img src={productImage} alt='' /></div>
+            <div class="img-modal">  <img src={productImage} alt='' style={{marginRight: 10}}/></div>
              </div>
              <div className="col-sm-7"><h2 style={{ paddingBottom:'30px', fontWeight:"bold" }}>{productName}</h2>
-             <div style={{ paddingLeft:'0' }}>  <h5 style={{ fontWeight:"bold" }}>Product Category: {productCategory}</h5>  </div>
-             <div> <h5 style={{ fontWeight:"bold" }}>Product Price: ${productPrice}</h5> </div>
-             <div> <h5 style={{ fontWeight:"bold" }}>Manufacture Contacts: {contacts}</h5> </div>
+             <div style={{ paddingLeft:'0' }}>  <h5 style={{ fontWeight:"bold", marginLeft: 50 }}>Product Category: {productCategory}</h5>  </div>
+             <div> <h5 style={{ fontWeight:"bold", marginLeft: 50 }}>Product Price: ${productPrice}</h5> </div>
+             <div> <h5 style={{ fontWeight:"bold", marginLeft: 50 }}>Manufacture Contacts: {contacts}</h5> </div>
              
              </div>
             </div>
             <div className="row">
             <div className="col-sm-7">
-            <div><h4 style={{ marginTop:'30px' }}>Additional Info</h4> </div>
-            <h5>{longDes}</h5>
+            <div><h4 style={{ marginTop:'30px', fontWeight:"bold" }}>Additional Info</h4> </div>
+            <h5 style={{fontSize: 18}}>{longDes}</h5>
              </div>
                 </div>
 
